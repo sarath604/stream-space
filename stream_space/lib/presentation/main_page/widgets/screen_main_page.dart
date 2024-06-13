@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stream_space/presentation/Downloads/screen_downlods.dart';
+import 'package:stream_space/presentation/Downloads/screen_downloads.dart';
 import 'package:stream_space/presentation/Fast_Laughs/screen_fast_laughs.dart';
 import 'package:stream_space/presentation/Home/screen_home.dart';
 import 'package:stream_space/presentation/New&Hot/screen_New&Hot.dart';
@@ -14,7 +14,7 @@ class ScreenMainPage extends StatelessWidget {
     ScreenNewAndHot(),
     ScreenFastLaughs(),
     ScreenSearch(),
-    ScreenDownloads(),
+   ScreenDownloads()
   ];
   @override
   Widget build(BuildContext context) {
