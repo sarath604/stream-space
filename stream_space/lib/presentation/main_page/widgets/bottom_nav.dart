@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stream_space/core/colors/colors.dart';
 
 ValueNotifier<int> indexchangeNotifier = ValueNotifier(0);
 
@@ -12,7 +13,7 @@ class BottomNavigationWidget extends StatelessWidget {
         builder: (context, newvalue, _) {
           return BottomNavigationBar(
               type: BottomNavigationBarType.fixed,
-              backgroundColor: Colors.black,
+              backgroundColor:backgroundColor,
               elevation: 0,
               currentIndex: newvalue,
               onTap: (index) {

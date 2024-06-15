@@ -83,7 +83,7 @@ class ScreenDownloads extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10),
                         image: DecorationImage(
                             image: NetworkImage(imageList[0]),
-                            fit: BoxFit.fill)),
+                            fit: BoxFit.cover)),
                   ),
                 ),
                 Transform.rotate(
@@ -96,7 +96,7 @@ class ScreenDownloads extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10),
                         image: DecorationImage(
                             image: NetworkImage(imageList[1]),
-                            fit: BoxFit.fill)),
+                            fit: BoxFit.cover)),
                   ),
                 ),
                 Container(
@@ -106,7 +106,7 @@ class ScreenDownloads extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       image: DecorationImage(
-                          image: NetworkImage(imageList[2]), fit: BoxFit.fill)),
+                          image: NetworkImage(imageList[2]), fit: BoxFit.cover)),
                 ),
               ],
             ),
