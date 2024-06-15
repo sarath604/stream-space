@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stream_space/core/colors/colors.dart';
 
@@ -26,7 +27,7 @@ class BottomNavigationWidget extends StatelessWidget {
               items: const [
                 BottomNavigationBarItem(
                     icon: Icon(
-                      Icons.home,
+                     Icons.home,
                     ),
                     label: 'Home'),
                 BottomNavigationBarItem(
@@ -41,7 +42,7 @@ class BottomNavigationWidget extends StatelessWidget {
                     label: 'Fast Laughs'),
                 BottomNavigationBarItem(
                     icon: Icon(
-                      Icons.search,
+                     CupertinoIcons.search,
                     ),
                     label: 'Search'),
                 BottomNavigationBarItem(
