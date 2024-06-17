@@ -3,7 +3,7 @@ import 'package:stream_space/core/constants.dart';
 import 'package:stream_space/presentation/Search/widget/title.dart';
 
 const imageUrl2 =
-    'https://media.themoviedb.org/t/p/w220_and_h330_face/6FsGeIp7heHm5eh4tIxTzHIRxmt.jpg';
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWXl1T-dYJTpqgkctCQ5HNxCZ3UdwhtT3NpviebmR-EeuIrm4BO8OiaB2BWUUuIIT-2fY&usqp=CAU';
 
 class SearchResultWidget extends StatelessWidget {
   const SearchResultWidget({super.key});

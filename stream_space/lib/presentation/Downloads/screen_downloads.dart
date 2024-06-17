@@ -9,9 +9,9 @@ class ScreenDownloads extends StatelessWidget {
   const ScreenDownloads({super.key});
 
   final List imageList = const [
-    'https://media.themoviedb.org/t/p/w220_and_h330_face/zDi2U7WYkdIoGYHcYbM9X5yReVD.jpg',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHXavbXWBwKiWnW1bThL66W4aXNq9X73oi4Q&s',
     'https://image.tmdb.org/t/p/w220_and_h330_face/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg',
-    'https://media.themoviedb.org/t/p/w220_and_h330_face/t9XkeE7HzOsdQcDDDapDYh8Rrmt.jpg'
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwNMFIdfKxeR3eqLvBNVL0na5Hz7xjoAQpTg&s'
   ];
   @override
   Widget build(BuildContext context) {
