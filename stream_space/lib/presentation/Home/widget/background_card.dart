@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stream_space/core/colors/colors.dart';
 
 const imageUrl3 =
-    'https://i.pinimg.com/originals/c6/c0/29/c6c029464c58fbb85c2c06db701e72d5.jpg';
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnEk5sL3PtmZvcbYJDzGPoRqAW1CPfvwK2jw&s';
 
 class BackgroundCard extends StatelessWidget {
   const BackgroundCard({super.key});
