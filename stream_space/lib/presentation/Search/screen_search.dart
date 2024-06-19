@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stream_space/core/colors/colors.dart';
 import 'package:stream_space/core/constants.dart';
-import 'package:stream_space/presentation/Search/widget/Search_result.dart';
+import 'package:stream_space/presentation/Search/widget/search_result.dart';
 import 'package:stream_space/presentation/Search/widget/search_idle.dart';
 
 class ScreenSearch extends StatelessWidget {

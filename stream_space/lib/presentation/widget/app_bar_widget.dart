@@ -27,12 +27,7 @@ class AppbarWidget extends StatelessWidget {
           iconSize: 30,
         ),
         kwidth,
-        Container(
-          width: 30,
-          height: 30,
-          color: Colors.blue,
-          child: const Icon(Icons.emoji_emotions_outlined),
-        ),
+        IconButton(onPressed: (){}, icon: const Icon(Icons.person,color: kWhite,size: 30,),),
         kwidth
       ],
     );

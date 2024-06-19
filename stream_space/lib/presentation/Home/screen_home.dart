@@ -43,7 +43,7 @@ class ScreenHome extends StatelessWidget {
                 ),
                 scrollNotifier.value == true
                     ? AnimatedContainer(
-                      duration: Duration(milliseconds: 1000),
+                        duration: const Duration(milliseconds: 1000),
                         width: double.infinity,
                         height: 100,
                         color: const Color.fromARGB(50, 0, 0, 0),
@@ -69,23 +69,33 @@ class ScreenHome extends StatelessWidget {
                                   iconSize: 30,
                                 ),
                                 kwidth,
-                                Container(
-                                  width: 30,
-                                  height: 30,
-                                  color: Colors.blue,
-                                  child:
-                                      const Icon(Icons.emoji_emotions_outlined),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.person,
+                                    color: kWhite,
+                                    size: 30,
+                                  ),
                                 ),
                                 kwidth
                               ],
                             ),
-                            kHeight
-                            , Row(
+                            kHeight,
+                            const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Text('TV Shows',style: TextStyle(color: kWhite,fontSize: 16),),
-                                Text('Movies',style: TextStyle(color: kWhite,fontSize: 16),),
-                                Text('Categories',style: TextStyle(color: kWhite,fontSize: 16),)
+                                Text(
+                                  'TV Shows',
+                                  style: TextStyle(color: kWhite, fontSize: 16),
+                                ),
+                                Text(
+                                  'Movies',
+                                  style: TextStyle(color: kWhite, fontSize: 16),
+                                ),
+                                Text(
+                                  'Categories',
+                                  style: TextStyle(color: kWhite, fontSize: 16),
+                                )
                               ],
                             ),
                           ],
