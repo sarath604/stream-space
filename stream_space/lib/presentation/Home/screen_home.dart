@@ -51,14 +51,17 @@ class ScreenHome extends StatelessWidget {
                           children: [
                             Row(
                               children: [
-                                const CircleAvatar(
-                                  radius: 24,
-                                  backgroundColor: backgroundColor,
-                                  child: Image(
-                                    width: 80,
-                                    height: 80,
-                                    image: AssetImage(
-                                        'C:/Users/pro/Desktop/StreamSpace/stream_space/assets/images/Untitled_design-removebg-preview.png'),
+                                const Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                                  child: CircleAvatar(
+                                    radius: 24,
+                                    backgroundColor: backgroundColor,
+                                    child: Image(
+                                      width: 80,
+                                      height: 80,
+                                      image: AssetImage(
+                                          'C:/Users/pro/Desktop/StreamSpace/stream_space/assets/images/Untitled_design-removebg-preview.png'),
+                                    ),
                                   ),
                                 ),
                                 const Spacer(),
@@ -80,7 +83,7 @@ class ScreenHome extends StatelessWidget {
                                 kwidth
                               ],
                             ),
-                            kHeight,
+                           
                             const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [

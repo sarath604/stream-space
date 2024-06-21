@@ -2,8 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:stream_space/core/constants.dart';
 import 'package:stream_space/presentation/Search/widget/title.dart';
 
-const imageUrl2 =
-    'https://i.pinimg.com/originals/c6/c0/29/c6c029464c58fbb85c2c06db701e72d5.jpg';
+
 
 class SearchResultWidget extends StatelessWidget {
   const SearchResultWidget({super.key});
@@ -22,7 +21,7 @@ class SearchResultWidget extends StatelessWidget {
               mainAxisSpacing: 10,
               crossAxisSpacing: 10,
               childAspectRatio: 1/1.6,
-              children: List.generate(20, (index) => const MainCard())),
+              children: List.generate(10, (index) =>  MainCard(index: index,))),
         ),
       ],
     );
@@ -30,15 +29,16 @@ class SearchResultWidget extends StatelessWidget {
 }
 
 class MainCard extends StatelessWidget {
-  const MainCard({super.key});
+  final int index;
+  const MainCard({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        image: const DecorationImage(
-          image: NetworkImage(imageUrl2),
+        image:  DecorationImage(
+          image: NetworkImage(imageUrl3[index]),
           fit: BoxFit.cover,
         ),
       ),

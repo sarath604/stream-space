@@ -14,7 +14,7 @@ class ScreenMainPage extends StatelessWidget {
     ScreenNewAndHot(),
     ScreenFastLaughs(),
     ScreenSearch(),
-  ScreenDownloads()
+  ScreenDownloads(),
   
   ];
   @override

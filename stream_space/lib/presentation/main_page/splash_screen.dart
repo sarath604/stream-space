@@ -18,24 +18,37 @@ class _ScreenSplashState extends State<ScreenSplash> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: backgroundColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image(
-            width: 400,
-            height: 400,
-            image: AssetImage(
-                'C:/Users/pro/Desktop/StreamSpace/stream_space/assets/images/Untitled_design-removebg-preview.png'),
-          ),
-          Text(
-            'STREAM',
-            style: TextStyle(
-              letterSpacing: 25,
-              fontSize: 30,
-              color:kWhite,
-            ),
+          Stack(
+            children: [
+              Container(
+                width: double.infinity,
+                height: 600,
+                color: backgroundColor,
+                child: const Image(
+                  width: 400,
+                  height: 400,
+                  image: AssetImage(
+                      'C:/Users/pro/Desktop/StreamSpace/stream_space/assets/images/Untitled_design-removebg-preview.png'),
+                ),
+              ),
+              const Positioned(
+                bottom: 130,
+                left: 60,
+                child: Text(
+                  'STREAM',
+                  style: TextStyle(
+                    letterSpacing: 25,
+                    fontSize: 30,
+                    color: kWhite,
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),
@@ -44,7 +57,7 @@ class _ScreenSplashState extends State<ScreenSplash> {
 
   Future<void> gotoScreenHome() async {
     await Future.delayed(
-      const Duration(seconds: 10),
+      const Duration(seconds: 2),
     );
     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx) {
       return const ScreenMainPage();

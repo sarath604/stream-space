@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:stream_space/core/colors/colors.dart';
 import 'package:stream_space/core/constants.dart';
@@ -17,15 +16,15 @@ class ScreenDownloads extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(50),
-          child: AppbarWidget(
-            title: 'Downloads',
+          preferredSize: Size.fromHeight(68),
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+            child: AppbarWidget(
+              title: 'Downloads',
+            ),
           )),
       body: ListView(
         children: [
-          const SizedBox(
-            height: 10,
-          ),
           const Row(
             children: [
               kwidth,
@@ -106,7 +105,8 @@ class ScreenDownloads extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       image: DecorationImage(
-                          image: NetworkImage(imageList[2]), fit: BoxFit.cover)),
+                          image: NetworkImage(imageList[2]),
+                          fit: BoxFit.cover)),
                 ),
               ],
             ),

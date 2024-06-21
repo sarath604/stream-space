@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:stream_space/core/colors/colors.dart';
 import 'package:stream_space/core/constants.dart';
 
-const imageUrl3 =
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgLihyS0uHMlECKRnxYSbnD13CQpFJKioJeQ&s';
 
 class NumberMainCard extends StatelessWidget {
   final String title;
@@ -62,8 +60,8 @@ class ListViewNumberCard extends StatelessWidget {
               height: 200,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                image: const DecorationImage(
-                  image: NetworkImage(imageUrl3),
+                image:  DecorationImage(
+                  image: NetworkImage(imageUrl3[index]),
                   fit: BoxFit.cover,
                 ),
               ),

@@ -13,53 +13,56 @@ class ScreenNewAndHot extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(95),
-          child: AppBar(
-            backgroundColor: backgroundColor,
-            title: const Text(
-              'New & Hot',
-              style: TextStyle(
-                color: kWhite,
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            actions: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.cast),
-                color: kWhite,
-                iconSize: 30,
-              ),
-              kwidth,
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.person,
+          preferredSize: const Size.fromHeight(106),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 5),
+            child: AppBar(
+              backgroundColor: backgroundColor,
+              title: const Text(
+                'New & Hot',
+                style: TextStyle(
                   color: kWhite,
-                  size: 30,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-              kwidth,
-            ],
-            bottom: TabBar(
-              indicator: BoxDecoration(
-                color: kWhite,
-                borderRadius: BorderRadius.circular(30),
-              ),
-              labelColor: Colors.black,
-              labelStyle:
-                  const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              isScrollable: true,
-              unselectedLabelColor: kWhite,
-              tabs: const [
-                Tab(
-                  child: Text('🍿 Coming Soon'),
+              actions: [
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.cast),
+                  color: kWhite,
+                  iconSize: 30,
                 ),
-                Tab(
-                  child: Text("👀 Everyone's Watching"),
-                )
+                kwidth,
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.person,
+                    color: kWhite,
+                    size: 30,
+                  ),
+                ),
+                kwidth,
               ],
+              bottom: TabBar(
+                indicator: BoxDecoration(
+                  color: kWhite,
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                labelColor: Colors.black,
+                labelStyle:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                isScrollable: true,
+                unselectedLabelColor: kWhite,
+                tabs: const [
+                  Tab(
+                    child: Text('🍿 Coming Soon'),
+                  ),
+                  Tab(
+                    child: Text("👀 Everyone's Watching"),
+                  )
+                ],
+              ),
             ),
           ),
         ),

@@ -10,47 +10,49 @@ class BottomNavigationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
-        valueListenable: indexchangeNotifier,
-        builder: (context, newvalue, _) {
-          return BottomNavigationBar(
-              type: BottomNavigationBarType.fixed,
-              backgroundColor:backgroundColor,
-              elevation: 0,
-              currentIndex: newvalue,
-              onTap: (index) {
-                indexchangeNotifier.value = index;
-              },
-              selectedItemColor: Colors.white,
-              unselectedItemColor: Colors.grey,
-              selectedIconTheme: const IconThemeData(color: Colors.white),
-              unselectedIconTheme: const IconThemeData(color: Colors.grey),
-              items: const [
-                BottomNavigationBarItem(
-                    icon: Icon(
-                     Icons.home,
-                    ),
-                    label: 'Home'),
-                BottomNavigationBarItem(
-                    icon: Icon(
-                      Icons.collections,
-                    ),
-                    label: 'New & Hot'),
-                BottomNavigationBarItem(
-                    icon: Icon(
-                      Icons.emoji_emotions,
-                    ),
-                    label: 'Fast Laughs'),
-                BottomNavigationBarItem(
-                    icon: Icon(
-                     CupertinoIcons.search,
-                    ),
-                    label: 'Search'),
-                BottomNavigationBarItem(
-                    icon: Icon(
-                      Icons.download,
-                    ),
-                    label: 'Downloads'),
-              ]);
-        });
+      valueListenable: indexchangeNotifier,
+      builder: (context, newvalue, _) {
+        return BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: backgroundColor,
+          elevation: 0,
+          currentIndex: newvalue,
+          onTap: (index) {
+            indexchangeNotifier.value = index;
+          },
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.grey,
+          selectedIconTheme: const IconThemeData(color: Colors.white),
+          unselectedIconTheme: const IconThemeData(color: Colors.grey),
+          items: const [
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.home,
+                ),
+                label: 'Home'),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.collections,
+                ),
+                label: 'New & Hot'),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.emoji_emotions,
+                ),
+                label: 'Fast Laughs'),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  CupertinoIcons.search,
+                ),
+                label: 'Search'),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.download,
+                ),
+                label: 'Downloads'),
+          ],
+        );
+      },
+    );
   }
 }
