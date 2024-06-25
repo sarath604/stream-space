@@ -1,19 +1,21 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stream_space/application/downloads/downloads_bloc.dart';
 import 'package:stream_space/core/colors/colors.dart';
 import 'package:stream_space/core/constants.dart';
+import 'package:stream_space/core/string.dart';
 import 'package:stream_space/presentation/widget/app_bar_widget.dart';
 
 class ScreenDownloads extends StatelessWidget {
   const ScreenDownloads({super.key});
 
-  final List imageList = const [
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHXavbXWBwKiWnW1bThL66W4aXNq9X73oi4Q&s',
-    'https://image.tmdb.org/t/p/w220_and_h330_face/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwNMFIdfKxeR3eqLvBNVL0na5Hz7xjoAQpTg&s'
-  ];
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<DownloadsBloc>(context)
+          .add(const DownloadsEvent.getDownloadsImage());
+    });
     return Scaffold(
       appBar: const PreferredSize(
           preferredSize: Size.fromHeight(68),
@@ -62,54 +64,58 @@ class ScreenDownloads extends StatelessWidget {
               style: TextStyle(color: kgrey, fontSize: 18),
             ),
           ),
-          SizedBox(
-            width: 250,
-            height: 250,
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                const CircleAvatar(
-                  radius: 150,
-                  backgroundColor: kgrey,
+          BlocBuilder<DownloadsBloc, DownloadsState>(
+            builder: (context, state) {
+              return SizedBox(
+                width: 250,
+                height: 250,
+                child: state.isLoading ? Center(child: const CircularProgressIndicator()): Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    const CircleAvatar(
+                      radius: 150,
+                      backgroundColor: kgrey,
+                    ),
+                    Transform.rotate(
+                      angle: 20 * pi / 180,
+                      child: Container(
+                        margin: const EdgeInsets.only(left: 160),
+                        width: 140,
+                        height: 200,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                                image: NetworkImage("$imageAppendUrl${state.downloads?[0].posterPath}"),
+                                fit: BoxFit.cover)),
+                      ),
+                    ),
+                    Transform.rotate(
+                      angle: -20 * pi / 180,
+                      child: Container(
+                        margin: const EdgeInsets.only(right: 160),
+                        width: 140,
+                        height: 200,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                                image: NetworkImage("$imageAppendUrl${state.downloads?[1].posterPath}"),
+                                fit: BoxFit.cover)),
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(top: 20),
+                      width: 150,
+                      height: 220,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          image: DecorationImage(
+                              image: NetworkImage("$imageAppendUrl${state.downloads?[2].posterPath}"),
+                              fit: BoxFit.cover)),
+                    ),
+                  ],
                 ),
-                Transform.rotate(
-                  angle: 20 * pi / 180,
-                  child: Container(
-                    margin: const EdgeInsets.only(left: 160),
-                    width: 140,
-                    height: 200,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        image: DecorationImage(
-                            image: NetworkImage(imageList[0]),
-                            fit: BoxFit.cover)),
-                  ),
-                ),
-                Transform.rotate(
-                  angle: -20 * pi / 180,
-                  child: Container(
-                    margin: const EdgeInsets.only(right: 160),
-                    width: 140,
-                    height: 200,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        image: DecorationImage(
-                            image: NetworkImage(imageList[1]),
-                            fit: BoxFit.cover)),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top: 20),
-                  width: 150,
-                  height: 220,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                          image: NetworkImage(imageList[2]),
-                          fit: BoxFit.cover)),
-                ),
-              ],
-            ),
+              );
+            },
           ),
           const SizedBox(
             height: 70,
