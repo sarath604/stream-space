@@ -29,10 +29,11 @@ class ScreenSearch extends StatelessWidget {
                 ),
                 style: TextStyle(color: kWhite),
               ),
-            kHeight,
+              kHeight,
               // Expanded(child: SearchIdleWidget()),
-              Expanded(child: SearchResultWidget(),),
-             
+              Expanded(
+                child: SearchResultWidget(),
+              ),
             ],
           ),
         ),

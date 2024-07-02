@@ -64,4 +64,3 @@ class VideoListItem extends StatelessWidget {
     );
   }
 }
-

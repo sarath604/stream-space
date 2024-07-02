@@ -4,9 +4,10 @@ import 'package:stream_space/core/colors/colors.dart';
 import 'package:stream_space/domain/core/di/injectabl.dart';
 import 'package:stream_space/presentation/main_page/splash_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-Future <void> main()async {
-WidgetsFlutterBinding.ensureInitialized();
- await configureinjection();
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await configureinjection();
   runApp(const MyApp());
 }
 
@@ -17,24 +18,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => getIt<DownloadsBloc>(),
-        ),
-       
-      ],
-      child:MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          scaffoldBackgroundColor: backgroundColor,
-          primarySwatch: Colors.blue,
-          textTheme: const TextTheme(
-            bodyLarge: TextStyle(color: Colors.white),
+        providers: [
+          BlocProvider(
+            create: (context) => getIt<DownloadsBloc>(),
           ),
-        ),
-        home: const ScreenSplash(),
-      )
-    );
+        ],
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            scaffoldBackgroundColor: backgroundColor,
+            primarySwatch: Colors.blue,
+            textTheme: const TextTheme(
+              bodyLarge: TextStyle(color: Colors.white),
+            ),
+          ),
+          home: const ScreenSplash(),
+        ));
   }
 }
-

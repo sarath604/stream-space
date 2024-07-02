@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:stream_space/core/colors/colors.dart';
 import 'package:stream_space/core/constants.dart';
 
-
 class NumberMainCard extends StatelessWidget {
   final String title;
   const NumberMainCard({super.key, required this.title});
@@ -60,7 +59,7 @@ class ListViewNumberCard extends StatelessWidget {
               height: 200,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                image:  DecorationImage(
+                image: DecorationImage(
                   image: NetworkImage(imageUrl3[index]),
                   fit: BoxFit.cover,
                 ),

@@ -20,6 +20,7 @@ Downloads _$DownloadsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Downloads {
+// ignore: invalid_annotation_target
   @JsonKey(name: "poster_path")
   String? get posterPath => throw _privateConstructorUsedError;
 
@@ -103,6 +104,7 @@ class _$DownloadsImpl implements _Downloads {
   factory _$DownloadsImpl.fromJson(Map<String, dynamic> json) =>
       _$$DownloadsImplFromJson(json);
 
+// ignore: invalid_annotation_target
   @override
   @JsonKey(name: "poster_path")
   final String? posterPath;
@@ -147,7 +149,7 @@ abstract class _Downloads implements Downloads {
   factory _Downloads.fromJson(Map<String, dynamic> json) =
       _$DownloadsImpl.fromJson;
 
-  @override
+  @override // ignore: invalid_annotation_target
   @JsonKey(name: "poster_path")
   String? get posterPath;
   @override

@@ -27,12 +27,11 @@ class HomeMainCard extends StatelessWidget {
           kHeight,
           LimitedBox(
             maxHeight: 200,
-            
-            child:  ListView(
-                scrollDirection: Axis.horizontal,
-                shrinkWrap: true,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              shrinkWrap: true,
               children: List.generate(10, (index) => const ListViewCard()),
-              ),
+            ),
           )
         ],
       ),

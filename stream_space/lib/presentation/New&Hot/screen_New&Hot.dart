@@ -15,7 +15,7 @@ class ScreenNewAndHot extends StatelessWidget {
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(106),
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 5),
+            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
             child: AppBar(
               backgroundColor: backgroundColor,
               title: const Text(
@@ -88,5 +88,5 @@ class ScreenNewAndHot extends StatelessWidget {
         itemCount: 10,
         shrinkWrap: true,
         itemBuilder: (context, intex) => const EveryoneWatchingWidget());
-}
+  }
 }

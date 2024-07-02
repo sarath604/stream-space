@@ -3,7 +3,8 @@ import 'package:stream_space/core/colors/colors.dart';
 import 'package:stream_space/core/constants.dart';
 import 'package:stream_space/presentation/Search/widget/title.dart';
 
-const imageUrl = 'https://media.themoviedb.org/t/p/w500_and_h282_face/1stUIsjawROZxjiCMtqqXqgfZWC.jpg';
+const imageUrl =
+    'https://media.themoviedb.org/t/p/w500_and_h282_face/1stUIsjawROZxjiCMtqqXqgfZWC.jpg';
 
 class SearchIdleWidget extends StatelessWidget {
   const SearchIdleWidget({super.key});
@@ -13,7 +14,7 @@ class SearchIdleWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-         const SearchTextTitile(title: 'Top Searches'),
+        const SearchTextTitile(title: 'Top Searches'),
         kHeight,
         Expanded(
           child: ListView.separated(
@@ -27,8 +28,6 @@ class SearchIdleWidget extends StatelessWidget {
     );
   }
 }
-
-
 
 class TopSearchItemTile extends StatelessWidget {
   const TopSearchItemTile({super.key});

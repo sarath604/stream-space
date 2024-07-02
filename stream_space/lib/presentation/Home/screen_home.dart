@@ -52,7 +52,8 @@ class ScreenHome extends StatelessWidget {
                             Row(
                               children: [
                                 const Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 10, horizontal: 10),
                                   child: CircleAvatar(
                                     radius: 24,
                                     backgroundColor: backgroundColor,
@@ -83,7 +84,6 @@ class ScreenHome extends StatelessWidget {
                                 kwidth
                               ],
                             ),
-                           
                             const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [

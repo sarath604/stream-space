@@ -69,51 +69,59 @@ class ScreenDownloads extends StatelessWidget {
               return SizedBox(
                 width: 250,
                 height: 250,
-                child: state.isLoading ? Center(child: const CircularProgressIndicator()): Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    const CircleAvatar(
-                      radius: 150,
-                      backgroundColor: kgrey,
-                    ),
-                    Transform.rotate(
-                      angle: 20 * pi / 180,
-                      child: Container(
-                        margin: const EdgeInsets.only(left: 160),
-                        width: 140,
-                        height: 200,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            image: DecorationImage(
-                                image: NetworkImage("$imageAppendUrl${state.downloads?[0].posterPath}"),
-                                fit: BoxFit.cover)),
+                child: state.isLoading
+                    ? const Center(
+                        child: CircularProgressIndicator(
+                        color: kgrey,
+                      ))
+                    : Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          const CircleAvatar(
+                            radius: 150,
+                            backgroundColor: kgrey,
+                          ),
+                          Transform.rotate(
+                            angle: 20 * pi / 180,
+                            child: Container(
+                              margin: const EdgeInsets.only(left: 160),
+                              width: 140,
+                              height: 200,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                      image: NetworkImage(
+                                          "$imageAppendUrl${state.downloads?[0].posterPath}"),
+                                      fit: BoxFit.cover)),
+                            ),
+                          ),
+                          Transform.rotate(
+                            angle: -20 * pi / 180,
+                            child: Container(
+                              margin: const EdgeInsets.only(right: 160),
+                              width: 140,
+                              height: 200,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                      image: NetworkImage(
+                                          "$imageAppendUrl${state.downloads?[1].posterPath}"),
+                                      fit: BoxFit.cover)),
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(top: 20),
+                            width: 150,
+                            height: 220,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        "$imageAppendUrl${state.downloads?[2].posterPath}"),
+                                    fit: BoxFit.cover)),
+                          ),
+                        ],
                       ),
-                    ),
-                    Transform.rotate(
-                      angle: -20 * pi / 180,
-                      child: Container(
-                        margin: const EdgeInsets.only(right: 160),
-                        width: 140,
-                        height: 200,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            image: DecorationImage(
-                                image: NetworkImage("$imageAppendUrl${state.downloads?[1].posterPath}"),
-                                fit: BoxFit.cover)),
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(top: 20),
-                      width: 150,
-                      height: 220,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          image: DecorationImage(
-                              image: NetworkImage("$imageAppendUrl${state.downloads?[2].posterPath}"),
-                              fit: BoxFit.cover)),
-                    ),
-                  ],
-                ),
               );
             },
           ),

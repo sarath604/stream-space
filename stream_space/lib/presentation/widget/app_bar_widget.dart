@@ -27,7 +27,14 @@ class AppbarWidget extends StatelessWidget {
           iconSize: 30,
         ),
         kwidth,
-        IconButton(onPressed: (){}, icon: const Icon(Icons.person,color: kWhite,size: 30,),),
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.person,
+            color: kWhite,
+            size: 30,
+          ),
+        ),
         kwidth
       ],
     );

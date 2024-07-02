@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
-const kwidth = SizedBox(width: 15,);
-const kHeight = SizedBox(height: 15,);
-
+const kwidth = SizedBox(
+  width: 15,
+);
+const kHeight = SizedBox(
+  height: 15,
+);
 
 const imageUrl3 = [
   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgLihyS0uHMlECKRnxYSbnD13CQpFJKioJeQ&s',
