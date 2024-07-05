@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stream_space/application/search/bloc/search_bloc.dart';
 import 'package:stream_space/core/colors/colors.dart';
 import 'package:stream_space/core/constants.dart';
+import 'package:stream_space/core/string.dart';
 import 'package:stream_space/presentation/Search/widget/title.dart';
-
-const imageUrl =
-    'https://media.themoviedb.org/t/p/w500_and_h282_face/1stUIsjawROZxjiCMtqqXqgfZWC.jpg';
 
 class SearchIdleWidget extends StatelessWidget {
   const SearchIdleWidget({super.key});
@@ -17,11 +17,31 @@ class SearchIdleWidget extends StatelessWidget {
         const SearchTextTitile(title: 'Top Searches'),
         kHeight,
         Expanded(
-          child: ListView.separated(
-            shrinkWrap: true,
-            itemBuilder: ((context, index) => const TopSearchItemTile()),
-            separatorBuilder: ((context, index) => kHeight),
-            itemCount: 10,
+          child: BlocBuilder<SearchBloc, SearchState>(
+            builder: (context, state) {
+              if (state.isLoading) {
+                return const Center(
+                  child: CircularProgressIndicator(color: kgrey,),
+                );
+              } else if (state.isError) {
+                return const Center(
+                  child: Text('Error while getting data'),
+                );
+              } else if (state.idleList.isEmpty) {
+                return const Center(
+                  child: Text('List is empty'),
+                );
+              }
+              return ListView.separated(
+                shrinkWrap: true,
+                itemBuilder: ((context, index) {
+                  final movie = state.idleList[index];
+                  return TopSearchItemTile(title: movie.title??'No title provided',imageUrl:'$imageAppendUrl${movie.backdroppath}',);
+                }),
+                separatorBuilder: ((context, index) => kHeight),
+                itemCount: state.idleList.length,
+              );
+            },
           ),
         )
       ],
@@ -30,7 +50,9 @@ class SearchIdleWidget extends StatelessWidget {
 }
 
 class TopSearchItemTile extends StatelessWidget {
-  const TopSearchItemTile({super.key});
+  final String title;
+  final String imageUrl;
+  const TopSearchItemTile({super.key,required this.title,required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -41,17 +63,17 @@ class TopSearchItemTile extends StatelessWidget {
           height: 80,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            image: const DecorationImage(
+            image:  DecorationImage(
               image: NetworkImage(imageUrl),
               fit: BoxFit.cover,
             ),
           ),
         ),
         kwidth,
-        const Expanded(
+         Expanded(
           child: Text(
-            'Movies name',
-            style: TextStyle(
+            title,
+            style: const TextStyle(
               color: kWhite,
               fontSize: 16,
               fontWeight: FontWeight.bold,

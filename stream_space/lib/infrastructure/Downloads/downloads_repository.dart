@@ -1,3 +1,5 @@
+
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
@@ -13,11 +15,12 @@ class DownloadsRepository implements IDownloadsRepo {
     try {
       final Response response =
           await Dio(BaseOptions()).get(ApiEndPoints.downloads);
+        
       if (response.statusCode == 200 || response.statusCode == 201) {
         final downloadlist = (response.data['results'] as List).map((e) {
           return Downloads.fromJson(e);
         }).toList();
-
+     print(downloadlist);
         return Right(downloadlist);
       } else {
         return const Left(MainFailures.serverFailure());

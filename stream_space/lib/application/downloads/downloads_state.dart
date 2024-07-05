@@ -4,7 +4,7 @@ part of 'downloads_bloc.dart';
 class DownloadsState with _$DownloadsState {
   const factory DownloadsState({
     required bool isLoading,
-    List<Downloads>? downloads,
+    List<Downloads> downloads,
     required Option<Either<MainFailures, List<Downloads>>>
         downloadsFailureOrSuccessOpion,
   }) = _DownloadsState;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stream_space/application/downloads/downloads_bloc.dart';
+import 'package:stream_space/application/search/bloc/search_bloc.dart';
 import 'package:stream_space/core/colors/colors.dart';
 import 'package:stream_space/domain/core/di/injectabl.dart';
 import 'package:stream_space/presentation/main_page/splash_screen.dart';
@@ -21,6 +22,9 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider(
             create: (context) => getIt<DownloadsBloc>(),
+          ),
+           BlocProvider(
+            create: (context) => getIt<SearchBloc>(),
           ),
         ],
         child: MaterialApp(
