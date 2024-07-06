@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stream_space/application/search/bloc/search_bloc.dart';
 import 'package:stream_space/core/constants.dart';
+import 'package:stream_space/core/string.dart';
 import 'package:stream_space/presentation/Search/widget/title.dart';
 
 class SearchResultWidget extends StatelessWidget {
@@ -13,17 +16,22 @@ class SearchResultWidget extends StatelessWidget {
         const SearchTextTitile(title: 'Movies & TV'),
         kHeight,
         Expanded(
-          child: GridView.count(
-              shrinkWrap: true,
-              crossAxisCount: 3,
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 10,
-              childAspectRatio: 1 / 1.6,
-              children: List.generate(
-                  10,
-                  (index) => MainCard(
-                        index: index,
-                      ))),
+          child: BlocBuilder<SearchBloc, SearchState>(
+            builder: (context, state) {
+              return GridView.count(
+                        shrinkWrap: true,
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 10,
+                        crossAxisSpacing: 10,
+                        childAspectRatio: 1 / 1.6,
+                        children: List.generate(
+                            state.searchResultList.length,
+                            (index) {
+                              final movie = state.searchResultList[index];
+                              return MainCard(imageUrl: '$imageAppendUrl${movie.posterPath}');
+                            } ));
+            },
+          ),
         ),
       ],
     );
@@ -31,8 +39,8 @@ class SearchResultWidget extends StatelessWidget {
 }
 
 class MainCard extends StatelessWidget {
-  final int index;
-  const MainCard({super.key, required this.index});
+  final String imageUrl;
+  const MainCard({super.key, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +48,7 @@ class MainCard extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         image: DecorationImage(
-          image: NetworkImage(imageUrl3[index]),
+          image: NetworkImage(imageUrl),
           fit: BoxFit.cover,
         ),
       ),

@@ -60,7 +60,7 @@ class _ScreenSplashState extends State<ScreenSplash> {
       const Duration(seconds: 2),
     );
     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx) {
-      return const ScreenMainPage();
+      return  const ScreenMainPage();
     }));
   }
 }

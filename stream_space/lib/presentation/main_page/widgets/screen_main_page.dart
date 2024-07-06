@@ -7,7 +7,7 @@ import 'package:stream_space/presentation/Search/screen_search.dart';
 import 'package:stream_space/presentation/main_page/widgets/bottom_nav.dart';
 
 class ScreenMainPage extends StatelessWidget {
-  const ScreenMainPage({super.key});
+   const ScreenMainPage({super.key});
 
   final _page = const [
     ScreenHome(),
