@@ -4,6 +4,7 @@ import 'package:stream_space/core/constants.dart';
 import 'package:stream_space/presentation/Fast_Laughs/widget/custom_button.dart';
 
 class ComingSoonWidget extends StatelessWidget {
+  final String id;
   final String month;
   final String day;
   final String name;
@@ -11,6 +12,7 @@ class ComingSoonWidget extends StatelessWidget {
   final String imageurl;
   const ComingSoonWidget(
       {super.key,
+      required this.id,
       required this.month,
       required this.day,
       required this.name,

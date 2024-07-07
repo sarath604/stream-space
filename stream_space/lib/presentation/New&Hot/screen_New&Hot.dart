@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:stream_space/application/New&Hot/newandhot_bloc.dart';
 import 'package:stream_space/core/colors/colors.dart';
 import 'package:stream_space/core/constants.dart';
@@ -87,7 +88,7 @@ class Buildcomingsoon extends StatelessWidget {
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<NewandhotBloc>(context).add(const Comingsoon());
-     });
+    });
     return BlocBuilder<NewandhotBloc, NewandhotState>(
       builder: (context, state) {
         if (state.isloading) {
@@ -106,11 +107,24 @@ class Buildcomingsoon extends StatelessWidget {
             shrinkWrap: true,
             itemBuilder: (context, intex) {
               final movie = state.comingsoonlist[intex];
-              return  ComingSoonWidget(
-                month: 'FEB',
-                day: '11',
-                name: movie.originalTitle??'No title',
-                overview: movie.overview??'No overview',
+              String month;
+              String day;
+              try {
+                final date = DateTime.tryParse(movie.releaseDate!);
+                final formateddate = DateFormat.yMMMMd().format(date!);
+                month = formateddate.split(' ').first.substring(0, 3).toUpperCase();
+                day = movie.releaseDate!.split('-')[1];
+              } catch (_) {
+                month = '';
+                day = '';
+              }
+
+              return ComingSoonWidget(
+                id: movie.id.toString(),
+                month: month,
+                day: day,
+                name: movie.originalTitle ?? 'No title',
+                overview: movie.overview ?? 'No overview',
                 imageurl: '$imageAppendUrl${movie.backdropPath}',
               );
             },
