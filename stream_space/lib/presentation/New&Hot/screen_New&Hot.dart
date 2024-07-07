@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stream_space/application/New&Hot/newandhot_bloc.dart';
 import 'package:stream_space/core/colors/colors.dart';
 import 'package:stream_space/core/constants.dart';
+import 'package:stream_space/core/string.dart';
 import 'package:stream_space/presentation/New&Hot/widget/coming_soon_widget.dart';
 import 'package:stream_space/presentation/New&Hot/widget/everyone_watching_widget.dart';
 
@@ -66,24 +69,63 @@ class ScreenNewAndHot extends StatelessWidget {
             ),
           ),
         ),
-        body: TabBarView(
+        body: const TabBarView(
           children: [
-            _buildcomingSoon(),
-            _buildEveryoneWatching(),
+            Buildcomingsoon(),
+            BuildEveryonewatching(),
           ],
         ),
       ),
     );
   }
+}
 
-  Widget _buildcomingSoon() {
-    return ListView.builder(
-        itemCount: 10,
-        shrinkWrap: true,
-        itemBuilder: (context, intex) => const ComingSoonWidget());
+class Buildcomingsoon extends StatelessWidget {
+  const Buildcomingsoon({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<NewandhotBloc>(context).add(const Comingsoon());
+     });
+    return BlocBuilder<NewandhotBloc, NewandhotState>(
+      builder: (context, state) {
+        if (state.isloading) {
+          return const Center(
+            child: CircularProgressIndicator(
+              color: kgrey,
+            ),
+          );
+        } else if (state.iserror) {
+          return const Center(child: Text('Error loading comingsoon'));
+        } else if (state.comingsoonlist.isEmpty) {
+          return const Center(child: Text('List is empty'));
+        } else {
+          return ListView.builder(
+            itemCount: state.comingsoonlist.length,
+            shrinkWrap: true,
+            itemBuilder: (context, intex) {
+              final movie = state.comingsoonlist[intex];
+              return  ComingSoonWidget(
+                month: 'FEB',
+                day: '11',
+                name: movie.originalTitle??'No title',
+                overview: movie.overview??'No overview',
+                imageurl: '$imageAppendUrl${movie.backdropPath}',
+              );
+            },
+          );
+        }
+      },
+    );
   }
+}
 
-  Widget _buildEveryoneWatching() {
+class BuildEveryonewatching extends StatelessWidget {
+  const BuildEveryonewatching({super.key});
+
+  @override
+  Widget build(BuildContext context) {
     return ListView.builder(
         itemCount: 10,
         shrinkWrap: true,

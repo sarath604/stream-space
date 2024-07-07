@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stream_space/application/New&Hot/newandhot_bloc.dart';
 import 'package:stream_space/application/downloads/downloads_bloc.dart';
 import 'package:stream_space/application/search/bloc/search_bloc.dart';
 import 'package:stream_space/core/colors/colors.dart';
@@ -23,8 +24,11 @@ class MyApp extends StatelessWidget {
           BlocProvider(
             create: (context) => getIt<DownloadsBloc>(),
           ),
-           BlocProvider(
+          BlocProvider(
             create: (context) => getIt<SearchBloc>(),
+          ),
+          BlocProvider(
+            create: (context) => getIt<NewandhotBloc>(),
           ),
         ],
         child: MaterialApp(

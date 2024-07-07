@@ -3,11 +3,19 @@ import 'package:stream_space/core/colors/colors.dart';
 import 'package:stream_space/core/constants.dart';
 import 'package:stream_space/presentation/Fast_Laughs/widget/custom_button.dart';
 
-const imageurl4 =
-    'https://beavertonhummer.com/wp-content/uploads/2022/04/tall6-900x600.jpg';
-
 class ComingSoonWidget extends StatelessWidget {
-  const ComingSoonWidget({super.key});
+  final String month;
+  final String day;
+  final String name;
+  final String overview;
+  final String imageurl;
+  const ComingSoonWidget(
+      {super.key,
+      required this.month,
+      required this.day,
+      required this.name,
+      required this.overview,
+      required this.imageurl});
 
   @override
   Widget build(BuildContext context) {
@@ -16,18 +24,18 @@ class ComingSoonWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 15),
       child: Row(
         children: [
-          const SizedBox(
+          SizedBox(
             width: 50,
             height: 450,
             child: Column(
               children: [
                 Text(
-                  'FEB',
-                  style: TextStyle(color: kgrey, fontSize: 20),
+                  month,
+                  style: const TextStyle(color: kgrey, fontSize: 20),
                 ),
                 Text(
-                  '11',
-                  style: TextStyle(
+                  day,
+                  style: const TextStyle(
                     color: kWhite,
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
@@ -47,9 +55,9 @@ class ComingSoonWidget extends StatelessWidget {
                     Container(
                       width: size.width - 50,
                       height: 200,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: NetworkImage(imageurl4),
+                          image: NetworkImage(imageurl),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -72,24 +80,29 @@ class ComingSoonWidget extends StatelessWidget {
                   ],
                 ),
                 kHeight,
-                const Row(
+                Row(
                   children: [
-                    Text(
-                      'TALLGIRL2',
-                      style: TextStyle(
-                          color: kWhite,
-                          fontSize: 35,
-                          fontWeight: FontWeight.bold),
+                    Expanded(
+                      child: Text(
+                        // movie name
+                        name,
+                        maxLines: 1,
+                        overflow: TextOverflow.clip,
+
+                        style: const TextStyle(
+                            color: kWhite,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
-                    Spacer(),
-                    CustomButtonWidget(
+                    const CustomButtonWidget(
                       icon: Icons.notifications_none,
                       titie: 'Remind Me',
                       fontSize: 12,
                       size: 25,
                     ),
                     kwidth,
-                    CustomButtonWidget(
+                    const CustomButtonWidget(
                       icon: Icons.info_outline,
                       titie: 'info',
                       fontSize: 12,
@@ -99,9 +112,9 @@ class ComingSoonWidget extends StatelessWidget {
                   ],
                 ),
                 kHeight,
-                const Text(
-                  'Coming on Friday',
-                  style: TextStyle(color: kWhite, fontSize: 16),
+                Text(
+                  'Coming on $month $day',
+                  style: const TextStyle(color: kWhite, fontSize: 16),
                 ),
                 const Row(
                   children: [
@@ -118,15 +131,19 @@ class ComingSoonWidget extends StatelessWidget {
                     )
                   ],
                 ),
-                const Text(
-                  'Tall Girl 2',
-                  style: TextStyle(
+                Text(
+                  name,
+                  style: const TextStyle(
                       color: kWhite, fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 kHeight,
-                const Text(
-                  'Laning the lead in the school musical is a  dream come true for jodi,until the pressure sends her confidence - and her relationship - into a tailspin.',
-                  style: TextStyle(color: kgrey, fontSize: 12),
+                Expanded(
+                  child: Text(
+                    overview,
+                    maxLines: 4,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(color: kgrey, fontSize: 12),
+                  ),
                 ),
               ],
             ),
