@@ -8,7 +8,7 @@ class NewandhotState with _$NewandhotState {
     required bool isloading,
     required bool iserror,
   }) = _Initial;
-  factory NewandhotState.Initial() => NewandhotState(
+  factory NewandhotState.Initial() => const NewandhotState(
         comingsoonlist: [],
         everyonewatchinglist: [],
         isloading: false,

@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:stream_space/domain/New&Hot/model/new_and_hot_respo/new_and_hot_respo.dart';
@@ -45,8 +46,36 @@ class NewandhotBloc extends Bloc<NewandhotEvent, NewandhotState> {
       });
     });
 
-    on<Everyonewatching>((event, emit) {
-      // TODO: implement event handler
+    on<Everyonewatching>((event, emit)async {
+      emit(
+        const NewandhotState(
+          comingsoonlist: [],
+          everyonewatchinglist: [],
+          isloading: true,
+          iserror: false,
+        ),
+      );
+
+      final result = await _newAndHotService.newAndHotEveryoneWatching();
+      result.fold((MainFailures f) {
+        emit(
+          const NewandhotState(
+            comingsoonlist: [],
+            everyonewatchinglist: [],
+            isloading: false,
+            iserror: true,
+          ),
+        );
+      }, (NewAndHotRespo resp) {
+        emit(
+          NewandhotState(
+            comingsoonlist: state.comingsoonlist,
+            everyonewatchinglist:resp.results ,
+            isloading: false,
+            iserror: false,
+          ),
+        );
+      });
     });
   }
 }

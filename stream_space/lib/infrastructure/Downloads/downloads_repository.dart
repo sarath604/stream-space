@@ -20,7 +20,7 @@ class DownloadsRepository implements IDownloadsRepo {
         final downloadlist = (response.data['results'] as List).map((e) {
           return Downloads.fromJson(e);
         }).toList();
-     print(downloadlist);
+    // print(downloadlist);
         return Right(downloadlist);
       } else {
         return const Left(MainFailures.serverFailure());

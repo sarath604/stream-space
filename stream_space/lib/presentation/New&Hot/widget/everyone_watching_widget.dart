@@ -3,11 +3,17 @@ import 'package:stream_space/core/colors/colors.dart';
 import 'package:stream_space/core/constants.dart';
 import 'package:stream_space/presentation/Fast_Laughs/widget/custom_button.dart';
 
-const imageurl5 =
-    'https://hasznaltalma.hu/upload/default/1642407312_8028_lost-lead-jpg';
-
 class EveryoneWatchingWidget extends StatelessWidget {
-  const EveryoneWatchingWidget({super.key});
+  final String date;
+  final String title;
+  final String overview;
+  final String imageurl;
+  const EveryoneWatchingWidget(
+      {super.key,
+      required this.date,
+      required this.title,
+      required this.overview,
+      required this.imageurl});
 
   @override
   Widget build(BuildContext context) {
@@ -17,28 +23,14 @@ class EveryoneWatchingWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          kHeight,
-          const Text(
-            'Friends',
-            style: TextStyle(
-                color: kWhite, fontWeight: FontWeight.bold, fontSize: 18),
-          ),
-          kHeight,
-          const Text(
-            'This hit sitcom follows the merry misadventures of six 20 - somthing pals as they navigate the pitfalls of work,life and love in 1990s Manhattan.',
-            style: TextStyle(color: kgrey, fontSize: 12),
-          ),
-          const SizedBox(
-            height: 30,
-          ),
           Stack(
             children: [
               Container(
                 width: size.width,
                 height: 200,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: NetworkImage(imageurl5),
+                    image: NetworkImage(imageurl),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -61,27 +53,33 @@ class EveryoneWatchingWidget extends StatelessWidget {
             ],
           ),
           kHeight,
-          const Row(
+          Row(
             children: [
-              Text(
-                'LOST IN SPACE',
-                style: TextStyle(
-                    color: kWhite, fontSize: 30, fontWeight: FontWeight.bold),
+              Expanded(
+                child: Text(
+                  title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                      color: kWhite,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.italic),
+                ),
               ),
-              Spacer(),
-              CustomButtonWidget(
+              const CustomButtonWidget(
                 icon: Icons.share,
                 titie: 'Share',
                 fontSize: 12,
                 size: 25,
               ),
-              CustomButtonWidget(
+              const CustomButtonWidget(
                 icon: Icons.add,
                 titie: 'My List',
                 fontSize: 12,
                 size: 35,
               ),
-              CustomButtonWidget(
+              const CustomButtonWidget(
                 icon: Icons.play_arrow,
                 titie: 'Play',
                 fontSize: 12,
@@ -103,15 +101,21 @@ class EveryoneWatchingWidget extends StatelessWidget {
               )
             ],
           ),
-          const Text(
-            'Lost in Space',
-            style: TextStyle(
-                color: kWhite, fontSize: 18, fontWeight: FontWeight.bold),
+          kHeight,
+          Text(
+            'Released in $date',
+            style: const TextStyle(color: kWhite, fontSize: 15),
           ),
           kHeight,
-          const Text(
-            'After crash - landing on an alien planet, the Robinson family fights against all odds to survive and escape.',
-            style: TextStyle(color: kgrey, fontSize: 12),
+          Text(
+            title,
+            style: const TextStyle(
+                color: kWhite, fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          kHeight,
+          Text(
+            overview,
+            style: const TextStyle(color: kgrey, fontSize: 12),
           ),
         ],
       ),

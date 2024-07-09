@@ -39,6 +39,9 @@ class Result {
   @JsonKey(name: 'original_title')
   String? originalTitle;
 
+  @JsonKey(name: 'original_name')
+  String? originalname;
+
   @JsonKey(name: 'overview')
   String? overview;
 
@@ -48,13 +51,18 @@ class Result {
   @JsonKey(name: 'release_date')
   String? releaseDate;
 
+   @JsonKey(name: 'first_air_date')
+  String? firstairdate;
+
   Result({
     this.backdropPath,
     this.id,
     this.originalTitle,
+    this.originalname,
     this.overview,
     this.posterPath,
     this.releaseDate,
+    this.firstairdate
   });
 
   factory Result.fromJson(Map<String, dynamic> json) {

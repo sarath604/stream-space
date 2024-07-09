@@ -94,7 +94,7 @@ class ComingSoonWidget extends StatelessWidget {
                         style: const TextStyle(
                             color: kWhite,
                             fontSize: 30,
-                            fontWeight: FontWeight.bold),
+                            fontWeight: FontWeight.bold,fontStyle: FontStyle.italic,),
                       ),
                     ),
                     const CustomButtonWidget(

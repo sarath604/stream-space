@@ -112,7 +112,8 @@ class Buildcomingsoon extends StatelessWidget {
               try {
                 final date = DateTime.tryParse(movie.releaseDate!);
                 final formateddate = DateFormat.yMMMMd().format(date!);
-                month = formateddate.split(' ').first.substring(0, 3).toUpperCase();
+                month =
+                    formateddate.split(' ').first.substring(0, 3).toUpperCase();
                 day = movie.releaseDate!.split('-')[1];
               } catch (_) {
                 month = '';
@@ -140,9 +141,36 @@ class BuildEveryonewatching extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: 10,
-        shrinkWrap: true,
-        itemBuilder: (context, intex) => const EveryoneWatchingWidget());
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<NewandhotBloc>(context).add(const Everyonewatching());
+    });
+    return BlocBuilder<NewandhotBloc, NewandhotState>(
+      builder: (context, state) {
+        if (state.isloading) {
+          return const Center(
+            child: CircularProgressIndicator(
+              color: kgrey,
+            ),
+          );
+        } else if (state.iserror) {
+          return const Center(child: Text('Error loading Everyones watching'));
+        } else if (state.everyonewatchinglist.isEmpty) {
+          return const Center(child: Text('List is empty'));
+        } else {
+          return ListView.builder(
+              itemCount: state.everyonewatchinglist.length,
+              shrinkWrap: true,
+              itemBuilder: (context, intex) {
+                final tv = state.everyonewatchinglist[intex];
+                return EveryoneWatchingWidget(
+                    date: tv.firstairdate??'No date',
+                    title: tv.originalname??'No title',
+                    overview: tv.overview??'No overview',
+                    imageurl: '$imageAppendUrl${tv.backdropPath}',
+                  );
+              } );
+        }
+      },
+    );
   }
 }

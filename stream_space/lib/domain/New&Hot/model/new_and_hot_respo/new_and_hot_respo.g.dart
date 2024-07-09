@@ -29,16 +29,20 @@ Result _$ResultFromJson(Map<String, dynamic> json) => Result(
       backdropPath: json['backdrop_path'] as String?,
       id: (json['id'] as num?)?.toInt(),
       originalTitle: json['original_title'] as String?,
+      originalname: json['original_name'] as String?,
       overview: json['overview'] as String?,
       posterPath: json['poster_path'] as String?,
       releaseDate: json['release_date'] as String?,
+      firstairdate: json['first_air_date'] as String?,
     );
 
 Map<String, dynamic> _$ResultToJson(Result instance) => <String, dynamic>{
       'backdrop_path': instance.backdropPath,
       'id': instance.id,
       'original_title': instance.originalTitle,
+      'original_name': instance.originalname,
       'overview': instance.overview,
       'poster_path': instance.posterPath,
       'release_date': instance.releaseDate,
+      'first_air_date': instance.firstairdate,
     };
