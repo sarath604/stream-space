@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:stream_space/core/constants.dart';
 import 'package:stream_space/presentation/Downloads/screen_downloads.dart';
 import 'package:stream_space/presentation/Fast_Laughs/screen_fast_laughs.dart';
 import 'package:stream_space/presentation/Home/screen_home.dart';
@@ -18,15 +20,33 @@ class ScreenMainPage extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: ValueListenableBuilder(
-            valueListenable: indexchangeNotifier,
-            builder: (context, indext, _) {
-              return _page[indext];
-            }),
-      ),
-      bottomNavigationBar: const BottomNavigationWidget(),
+    return 
+       ValueListenableBuilder(
+        valueListenable: scrollNotifier,
+        builder: (context, index, _) {
+          return NotificationListener<UserScrollNotification>(
+            onNotification: (notification) {
+              final ScrollDirection direction = notification.direction;
+
+              if (direction == ScrollDirection.reverse) {
+                scrollNotifier.value = false;
+              } else if (direction == ScrollDirection.forward) {
+                scrollNotifier.value = true;
+              }
+
+              return true;
+            },
+      child: Scaffold(
+        body: SafeArea(
+          child: ValueListenableBuilder(
+              valueListenable: indexchangeNotifier,
+              builder: (context, indext, _) {
+                return _page[indext];
+              }),
+        ),
+        bottomNavigationBar:scrollNotifier.value == true? const BottomNavigationWidget():kHeight,
+      )
     );
-  }
+       }
+);}
 }

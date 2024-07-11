@@ -1,25 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stream_space/application/downloads/downloads_bloc.dart';
 import 'package:stream_space/core/colors/colors.dart';
-
-const imageUrl3 =
-    'https://i.pinimg.com/originals/c6/c0/29/c6c029464c58fbb85c2c06db701e72d5.jpg';
+import 'package:stream_space/core/string.dart';
 
 class BackgroundCard extends StatelessWidget {
   const BackgroundCard({super.key});
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<DownloadsBloc>(context)
+          .add(const DownloadsEvent.getDownloadsImage());
+    });
     return Stack(
       children: [
-        Container(
-          width: double.infinity,
-          height: 600,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: NetworkImage(imageUrl3),
-              fit: BoxFit.cover,
-            ),
-          ),
+        BlocBuilder<DownloadsBloc, DownloadsState>(
+          builder: (context, state) {
+            return Container(
+              width: double.infinity,
+              height: 600,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(
+                      "$imageAppendUrl${state.downloads?[0].posterPath}"),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            );
+          },
         ),
         Positioned(
           bottom: 10,
