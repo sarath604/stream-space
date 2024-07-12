@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:stream_space/core/colors/colors.dart';
-import 'package:stream_space/core/constants.dart';
 import 'package:stream_space/presentation/Peoples/widget/people_card.dart';
 
 class ScreenPeoples extends StatelessWidget {
