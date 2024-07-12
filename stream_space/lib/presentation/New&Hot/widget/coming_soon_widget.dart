@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stream_space/core/colors/colors.dart';
 import 'package:stream_space/core/constants.dart';
-import 'package:stream_space/presentation/Fast_Laughs/widget/custom_button.dart';
+import 'package:stream_space/presentation/Peoples/widget/custom_button.dart';
 
 class ComingSoonWidget extends StatelessWidget {
   final String id;

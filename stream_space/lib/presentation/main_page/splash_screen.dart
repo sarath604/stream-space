@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stream_space/application/downloads/downloads_bloc.dart';
 import 'package:stream_space/core/colors/colors.dart';
 import 'package:stream_space/presentation/main_page/widgets/screen_main_page.dart';
 
@@ -18,6 +20,10 @@ class _ScreenSplashState extends State<ScreenSplash> {
 
   @override
   Widget build(BuildContext context) {
+     WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<DownloadsBloc>(context)
+          .add(const DownloadsEvent.getDownloadsImage());
+    });
     return Scaffold(
       backgroundColor: backgroundColor,
       body: Column(

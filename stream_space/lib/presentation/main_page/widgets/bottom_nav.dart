@@ -37,9 +37,9 @@ class BottomNavigationWidget extends StatelessWidget {
                 label: 'New & Hot'),
             BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.emoji_emotions,
+                  Icons.people,
                 ),
-                label: 'Fast Laughs'),
+                label: 'Peoples'),
             BottomNavigationBarItem(
                 icon: Icon(
                   CupertinoIcons.search,
