@@ -81,14 +81,45 @@ class ScreenNewAndHot extends StatelessWidget {
   }
 }
 
-class Buildcomingsoon extends StatelessWidget {
+//Comingsoon
+
+class Buildcomingsoon extends StatefulWidget {
   const Buildcomingsoon({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  State<Buildcomingsoon> createState() => _BuildcomingsoonState();
+}
+
+class _BuildcomingsoonState extends State<Buildcomingsoon> {
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<NewandhotBloc>(context).add(const Comingsoon());
+      BlocProvider.of<NewandhotBloc>(context)
+          .add(const NewandhotEvent.comingsoon());
     });
+    _scrollController.addListener(_onScroll);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _onScroll() {
+    if (_scrollController.position.pixels ==
+        _scrollController.position.maxScrollExtent) {
+      // Dispatch event to fetch the next page
+      BlocProvider.of<NewandhotBloc>(context)
+          .add(const NewandhotEvent.getNextPage());
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return BlocBuilder<NewandhotBloc, NewandhotState>(
       builder: (context, state) {
         if (state.isloading) {
@@ -103,6 +134,8 @@ class Buildcomingsoon extends StatelessWidget {
           return const Center(child: Text('List is empty'));
         } else {
           return ListView.builder(
+            controller: _scrollController,
+            scrollDirection: Axis.vertical,
             itemCount: state.comingsoonlist.length,
             shrinkWrap: true,
             itemBuilder: (context, intex) {
@@ -136,14 +169,46 @@ class Buildcomingsoon extends StatelessWidget {
   }
 }
 
-class BuildEveryonewatching extends StatelessWidget {
+// Everyoncewatching
+
+
+class BuildEveryonewatching extends StatefulWidget {
   const BuildEveryonewatching({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  State<BuildEveryonewatching> createState() => _BuildEveryonewatchingState();
+}
+
+class _BuildEveryonewatchingState extends State<BuildEveryonewatching> {
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<NewandhotBloc>(context).add(const Everyonewatching());
+      BlocProvider.of<NewandhotBloc>(context)
+          .add(const NewandhotEvent.everyonewatching());
     });
+    _scrollController.addListener(_onScroll);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _onScroll() {
+    if (_scrollController.position.pixels ==
+        _scrollController.position.maxScrollExtent) {
+      // Dispatch event to fetch the next page
+      BlocProvider.of<NewandhotBloc>(context)
+          .add(const NewandhotEvent.getEveryoneNextPage());
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return BlocBuilder<NewandhotBloc, NewandhotState>(
       builder: (context, state) {
         if (state.isloading) {
@@ -158,6 +223,8 @@ class BuildEveryonewatching extends StatelessWidget {
           return const Center(child: Text('List is empty'));
         } else {
           return ListView.builder(
+            controller: _scrollController,
+            scrollDirection: Axis.vertical,
               itemCount: state.everyonewatchinglist.length,
               shrinkWrap: true,
               itemBuilder: (context, intex) {

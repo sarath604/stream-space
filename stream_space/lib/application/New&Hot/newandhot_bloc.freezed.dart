@@ -20,18 +20,24 @@ mixin _$NewandhotEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() comingsoon,
     required TResult Function() everyonewatching,
+    required TResult Function() getNextPage,
+    required TResult Function() getEveryoneNextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? comingsoon,
     TResult? Function()? everyonewatching,
+    TResult? Function()? getNextPage,
+    TResult? Function()? getEveryoneNextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? comingsoon,
     TResult Function()? everyonewatching,
+    TResult Function()? getNextPage,
+    TResult Function()? getEveryoneNextPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +45,24 @@ mixin _$NewandhotEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(Comingsoon value) comingsoon,
     required TResult Function(Everyonewatching value) everyonewatching,
+    required TResult Function(GetNextPage value) getNextPage,
+    required TResult Function(GetEveryoneNextPage value) getEveryoneNextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Comingsoon value)? comingsoon,
     TResult? Function(Everyonewatching value)? everyonewatching,
+    TResult? Function(GetNextPage value)? getNextPage,
+    TResult? Function(GetEveryoneNextPage value)? getEveryoneNextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Comingsoon value)? comingsoon,
     TResult Function(Everyonewatching value)? everyonewatching,
+    TResult Function(GetNextPage value)? getNextPage,
+    TResult Function(GetEveryoneNextPage value)? getEveryoneNextPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +126,8 @@ class _$ComingsoonImpl implements Comingsoon {
   TResult when<TResult extends Object?>({
     required TResult Function() comingsoon,
     required TResult Function() everyonewatching,
+    required TResult Function() getNextPage,
+    required TResult Function() getEveryoneNextPage,
   }) {
     return comingsoon();
   }
@@ -123,6 +137,8 @@ class _$ComingsoonImpl implements Comingsoon {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? comingsoon,
     TResult? Function()? everyonewatching,
+    TResult? Function()? getNextPage,
+    TResult? Function()? getEveryoneNextPage,
   }) {
     return comingsoon?.call();
   }
@@ -132,6 +148,8 @@ class _$ComingsoonImpl implements Comingsoon {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? comingsoon,
     TResult Function()? everyonewatching,
+    TResult Function()? getNextPage,
+    TResult Function()? getEveryoneNextPage,
     required TResult orElse(),
   }) {
     if (comingsoon != null) {
@@ -145,6 +163,8 @@ class _$ComingsoonImpl implements Comingsoon {
   TResult map<TResult extends Object?>({
     required TResult Function(Comingsoon value) comingsoon,
     required TResult Function(Everyonewatching value) everyonewatching,
+    required TResult Function(GetNextPage value) getNextPage,
+    required TResult Function(GetEveryoneNextPage value) getEveryoneNextPage,
   }) {
     return comingsoon(this);
   }
@@ -154,6 +174,8 @@ class _$ComingsoonImpl implements Comingsoon {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Comingsoon value)? comingsoon,
     TResult? Function(Everyonewatching value)? everyonewatching,
+    TResult? Function(GetNextPage value)? getNextPage,
+    TResult? Function(GetEveryoneNextPage value)? getEveryoneNextPage,
   }) {
     return comingsoon?.call(this);
   }
@@ -163,6 +185,8 @@ class _$ComingsoonImpl implements Comingsoon {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Comingsoon value)? comingsoon,
     TResult Function(Everyonewatching value)? everyonewatching,
+    TResult Function(GetNextPage value)? getNextPage,
+    TResult Function(GetEveryoneNextPage value)? getEveryoneNextPage,
     required TResult orElse(),
   }) {
     if (comingsoon != null) {
@@ -216,6 +240,8 @@ class _$EveryonewatchingImpl implements Everyonewatching {
   TResult when<TResult extends Object?>({
     required TResult Function() comingsoon,
     required TResult Function() everyonewatching,
+    required TResult Function() getNextPage,
+    required TResult Function() getEveryoneNextPage,
   }) {
     return everyonewatching();
   }
@@ -225,6 +251,8 @@ class _$EveryonewatchingImpl implements Everyonewatching {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? comingsoon,
     TResult? Function()? everyonewatching,
+    TResult? Function()? getNextPage,
+    TResult? Function()? getEveryoneNextPage,
   }) {
     return everyonewatching?.call();
   }
@@ -234,6 +262,8 @@ class _$EveryonewatchingImpl implements Everyonewatching {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? comingsoon,
     TResult Function()? everyonewatching,
+    TResult Function()? getNextPage,
+    TResult Function()? getEveryoneNextPage,
     required TResult orElse(),
   }) {
     if (everyonewatching != null) {
@@ -247,6 +277,8 @@ class _$EveryonewatchingImpl implements Everyonewatching {
   TResult map<TResult extends Object?>({
     required TResult Function(Comingsoon value) comingsoon,
     required TResult Function(Everyonewatching value) everyonewatching,
+    required TResult Function(GetNextPage value) getNextPage,
+    required TResult Function(GetEveryoneNextPage value) getEveryoneNextPage,
   }) {
     return everyonewatching(this);
   }
@@ -256,6 +288,8 @@ class _$EveryonewatchingImpl implements Everyonewatching {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Comingsoon value)? comingsoon,
     TResult? Function(Everyonewatching value)? everyonewatching,
+    TResult? Function(GetNextPage value)? getNextPage,
+    TResult? Function(GetEveryoneNextPage value)? getEveryoneNextPage,
   }) {
     return everyonewatching?.call(this);
   }
@@ -265,6 +299,8 @@ class _$EveryonewatchingImpl implements Everyonewatching {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Comingsoon value)? comingsoon,
     TResult Function(Everyonewatching value)? everyonewatching,
+    TResult Function(GetNextPage value)? getNextPage,
+    TResult Function(GetEveryoneNextPage value)? getEveryoneNextPage,
     required TResult orElse(),
   }) {
     if (everyonewatching != null) {
@@ -279,11 +315,242 @@ abstract class Everyonewatching implements NewandhotEvent {
 }
 
 /// @nodoc
+abstract class _$$GetNextPageImplCopyWith<$Res> {
+  factory _$$GetNextPageImplCopyWith(
+          _$GetNextPageImpl value, $Res Function(_$GetNextPageImpl) then) =
+      __$$GetNextPageImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetNextPageImplCopyWithImpl<$Res>
+    extends _$NewandhotEventCopyWithImpl<$Res, _$GetNextPageImpl>
+    implements _$$GetNextPageImplCopyWith<$Res> {
+  __$$GetNextPageImplCopyWithImpl(
+      _$GetNextPageImpl _value, $Res Function(_$GetNextPageImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetNextPageImpl implements GetNextPage {
+  const _$GetNextPageImpl();
+
+  @override
+  String toString() {
+    return 'NewandhotEvent.getNextPage()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetNextPageImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() comingsoon,
+    required TResult Function() everyonewatching,
+    required TResult Function() getNextPage,
+    required TResult Function() getEveryoneNextPage,
+  }) {
+    return getNextPage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? comingsoon,
+    TResult? Function()? everyonewatching,
+    TResult? Function()? getNextPage,
+    TResult? Function()? getEveryoneNextPage,
+  }) {
+    return getNextPage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? comingsoon,
+    TResult Function()? everyonewatching,
+    TResult Function()? getNextPage,
+    TResult Function()? getEveryoneNextPage,
+    required TResult orElse(),
+  }) {
+    if (getNextPage != null) {
+      return getNextPage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Comingsoon value) comingsoon,
+    required TResult Function(Everyonewatching value) everyonewatching,
+    required TResult Function(GetNextPage value) getNextPage,
+    required TResult Function(GetEveryoneNextPage value) getEveryoneNextPage,
+  }) {
+    return getNextPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Comingsoon value)? comingsoon,
+    TResult? Function(Everyonewatching value)? everyonewatching,
+    TResult? Function(GetNextPage value)? getNextPage,
+    TResult? Function(GetEveryoneNextPage value)? getEveryoneNextPage,
+  }) {
+    return getNextPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Comingsoon value)? comingsoon,
+    TResult Function(Everyonewatching value)? everyonewatching,
+    TResult Function(GetNextPage value)? getNextPage,
+    TResult Function(GetEveryoneNextPage value)? getEveryoneNextPage,
+    required TResult orElse(),
+  }) {
+    if (getNextPage != null) {
+      return getNextPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetNextPage implements NewandhotEvent {
+  const factory GetNextPage() = _$GetNextPageImpl;
+}
+
+/// @nodoc
+abstract class _$$GetEveryoneNextPageImplCopyWith<$Res> {
+  factory _$$GetEveryoneNextPageImplCopyWith(_$GetEveryoneNextPageImpl value,
+          $Res Function(_$GetEveryoneNextPageImpl) then) =
+      __$$GetEveryoneNextPageImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetEveryoneNextPageImplCopyWithImpl<$Res>
+    extends _$NewandhotEventCopyWithImpl<$Res, _$GetEveryoneNextPageImpl>
+    implements _$$GetEveryoneNextPageImplCopyWith<$Res> {
+  __$$GetEveryoneNextPageImplCopyWithImpl(_$GetEveryoneNextPageImpl _value,
+      $Res Function(_$GetEveryoneNextPageImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetEveryoneNextPageImpl implements GetEveryoneNextPage {
+  const _$GetEveryoneNextPageImpl();
+
+  @override
+  String toString() {
+    return 'NewandhotEvent.getEveryoneNextPage()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetEveryoneNextPageImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() comingsoon,
+    required TResult Function() everyonewatching,
+    required TResult Function() getNextPage,
+    required TResult Function() getEveryoneNextPage,
+  }) {
+    return getEveryoneNextPage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? comingsoon,
+    TResult? Function()? everyonewatching,
+    TResult? Function()? getNextPage,
+    TResult? Function()? getEveryoneNextPage,
+  }) {
+    return getEveryoneNextPage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? comingsoon,
+    TResult Function()? everyonewatching,
+    TResult Function()? getNextPage,
+    TResult Function()? getEveryoneNextPage,
+    required TResult orElse(),
+  }) {
+    if (getEveryoneNextPage != null) {
+      return getEveryoneNextPage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Comingsoon value) comingsoon,
+    required TResult Function(Everyonewatching value) everyonewatching,
+    required TResult Function(GetNextPage value) getNextPage,
+    required TResult Function(GetEveryoneNextPage value) getEveryoneNextPage,
+  }) {
+    return getEveryoneNextPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Comingsoon value)? comingsoon,
+    TResult? Function(Everyonewatching value)? everyonewatching,
+    TResult? Function(GetNextPage value)? getNextPage,
+    TResult? Function(GetEveryoneNextPage value)? getEveryoneNextPage,
+  }) {
+    return getEveryoneNextPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Comingsoon value)? comingsoon,
+    TResult Function(Everyonewatching value)? everyonewatching,
+    TResult Function(GetNextPage value)? getNextPage,
+    TResult Function(GetEveryoneNextPage value)? getEveryoneNextPage,
+    required TResult orElse(),
+  }) {
+    if (getEveryoneNextPage != null) {
+      return getEveryoneNextPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetEveryoneNextPage implements NewandhotEvent {
+  const factory GetEveryoneNextPage() = _$GetEveryoneNextPageImpl;
+}
+
+/// @nodoc
 mixin _$NewandhotState {
   List<Result> get comingsoonlist => throw _privateConstructorUsedError;
   List<Result> get everyonewatchinglist => throw _privateConstructorUsedError;
   bool get isloading => throw _privateConstructorUsedError;
   bool get iserror => throw _privateConstructorUsedError;
+  int? get currentPage => throw _privateConstructorUsedError;
+  int? get totalPages => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $NewandhotStateCopyWith<NewandhotState> get copyWith =>
@@ -300,7 +567,9 @@ abstract class $NewandhotStateCopyWith<$Res> {
       {List<Result> comingsoonlist,
       List<Result> everyonewatchinglist,
       bool isloading,
-      bool iserror});
+      bool iserror,
+      int? currentPage,
+      int? totalPages});
 }
 
 /// @nodoc
@@ -320,6 +589,8 @@ class _$NewandhotStateCopyWithImpl<$Res, $Val extends NewandhotState>
     Object? everyonewatchinglist = null,
     Object? isloading = null,
     Object? iserror = null,
+    Object? currentPage = freezed,
+    Object? totalPages = freezed,
   }) {
     return _then(_value.copyWith(
       comingsoonlist: null == comingsoonlist
@@ -338,6 +609,14 @@ class _$NewandhotStateCopyWithImpl<$Res, $Val extends NewandhotState>
           ? _value.iserror
           : iserror // ignore: cast_nullable_to_non_nullable
               as bool,
+      currentPage: freezed == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int?,
+      totalPages: freezed == totalPages
+          ? _value.totalPages
+          : totalPages // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -354,7 +633,9 @@ abstract class _$$InitialImplCopyWith<$Res>
       {List<Result> comingsoonlist,
       List<Result> everyonewatchinglist,
       bool isloading,
-      bool iserror});
+      bool iserror,
+      int? currentPage,
+      int? totalPages});
 }
 
 /// @nodoc
@@ -372,6 +653,8 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? everyonewatchinglist = null,
     Object? isloading = null,
     Object? iserror = null,
+    Object? currentPage = freezed,
+    Object? totalPages = freezed,
   }) {
     return _then(_$InitialImpl(
       comingsoonlist: null == comingsoonlist
@@ -390,6 +673,14 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.iserror
           : iserror // ignore: cast_nullable_to_non_nullable
               as bool,
+      currentPage: freezed == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int?,
+      totalPages: freezed == totalPages
+          ? _value.totalPages
+          : totalPages // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -401,7 +692,9 @@ class _$InitialImpl implements _Initial {
       {required final List<Result> comingsoonlist,
       required final List<Result> everyonewatchinglist,
       required this.isloading,
-      required this.iserror})
+      required this.iserror,
+      this.currentPage,
+      this.totalPages})
       : _comingsoonlist = comingsoonlist,
         _everyonewatchinglist = everyonewatchinglist;
 
@@ -426,10 +719,14 @@ class _$InitialImpl implements _Initial {
   final bool isloading;
   @override
   final bool iserror;
+  @override
+  final int? currentPage;
+  @override
+  final int? totalPages;
 
   @override
   String toString() {
-    return 'NewandhotState(comingsoonlist: $comingsoonlist, everyonewatchinglist: $everyonewatchinglist, isloading: $isloading, iserror: $iserror)';
+    return 'NewandhotState(comingsoonlist: $comingsoonlist, everyonewatchinglist: $everyonewatchinglist, isloading: $isloading, iserror: $iserror, currentPage: $currentPage, totalPages: $totalPages)';
   }
 
   @override
@@ -443,7 +740,11 @@ class _$InitialImpl implements _Initial {
                 .equals(other._everyonewatchinglist, _everyonewatchinglist) &&
             (identical(other.isloading, isloading) ||
                 other.isloading == isloading) &&
-            (identical(other.iserror, iserror) || other.iserror == iserror));
+            (identical(other.iserror, iserror) || other.iserror == iserror) &&
+            (identical(other.currentPage, currentPage) ||
+                other.currentPage == currentPage) &&
+            (identical(other.totalPages, totalPages) ||
+                other.totalPages == totalPages));
   }
 
   @override
@@ -452,7 +753,9 @@ class _$InitialImpl implements _Initial {
       const DeepCollectionEquality().hash(_comingsoonlist),
       const DeepCollectionEquality().hash(_everyonewatchinglist),
       isloading,
-      iserror);
+      iserror,
+      currentPage,
+      totalPages);
 
   @JsonKey(ignore: true)
   @override
@@ -466,7 +769,9 @@ abstract class _Initial implements NewandhotState {
       {required final List<Result> comingsoonlist,
       required final List<Result> everyonewatchinglist,
       required final bool isloading,
-      required final bool iserror}) = _$InitialImpl;
+      required final bool iserror,
+      final int? currentPage,
+      final int? totalPages}) = _$InitialImpl;
 
   @override
   List<Result> get comingsoonlist;
@@ -476,6 +781,10 @@ abstract class _Initial implements NewandhotState {
   bool get isloading;
   @override
   bool get iserror;
+  @override
+  int? get currentPage;
+  @override
+  int? get totalPages;
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>

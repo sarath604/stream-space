@@ -24,7 +24,7 @@ class NewandhotBloc extends Bloc<NewandhotEvent, NewandhotState> {
         ),
       );
 
-      final result = await _newAndHotService.newAndHotcomingsoon();
+      final result = await _newAndHotService.newAndHotcomingsoon(page: 1);
       result.fold((MainFailures f) {
         emit(
           const NewandhotState(
@@ -41,10 +41,43 @@ class NewandhotBloc extends Bloc<NewandhotEvent, NewandhotState> {
             everyonewatchinglist: state.everyonewatchinglist,
             isloading: false,
             iserror: false,
+            currentPage: resp.page,
+            totalPages: resp.totalPages,
           ),
         );
       });
     });
+    on<GetNextPage>((event, emit) async {
+      if (state.currentPage! >= state.totalPages!) return;
+      emit(state.copyWith(isloading: true, iserror: false));
+      final nextPage = state.currentPage! + 1;
+
+      final result = await _newAndHotService.newAndHotcomingsoon(page: nextPage);
+      result.fold((MainFailures f) {
+        emit(
+          const NewandhotState(
+            comingsoonlist: [],
+            everyonewatchinglist: [],
+            isloading: false,
+            iserror: true,
+          ),
+        );
+      }, (NewAndHotRespo resp) {
+        emit(
+          NewandhotState(
+            comingsoonlist: resp.results,
+            everyonewatchinglist: state.everyonewatchinglist,
+            isloading: false,
+            iserror: false,
+            currentPage: resp.page,
+            totalPages: resp.totalPages,
+          ),
+        );
+      });
+    });
+
+// Everyonewatching
+
 
     on<Everyonewatching>((event, emit) async {
       emit(
@@ -53,10 +86,11 @@ class NewandhotBloc extends Bloc<NewandhotEvent, NewandhotState> {
           everyonewatchinglist: [],
           isloading: true,
           iserror: false,
+          
         ),
       );
 
-      final result = await _newAndHotService.newAndHotEveryoneWatching();
+      final result = await _newAndHotService.newAndHotEveryoneWatching(page:1);
       result.fold((MainFailures f) {
         emit(
           const NewandhotState(
@@ -73,9 +107,41 @@ class NewandhotBloc extends Bloc<NewandhotEvent, NewandhotState> {
             everyonewatchinglist: resp.results,
             isloading: false,
             iserror: false,
+            currentPage: resp.page,
+            totalPages: resp.totalPages,
+          ),
+        );
+      });
+    });
+     on<GetEveryoneNextPage>((event, emit) async {
+      if (state.currentPage! >= state.totalPages!) return;
+      emit(state.copyWith(isloading: true, iserror: false));
+      final nextPage = state.currentPage! + 1;
+
+      final result = await _newAndHotService.newAndHotEveryoneWatching(page: nextPage);
+      result.fold((MainFailures f) {
+        emit(
+          const NewandhotState(
+            comingsoonlist: [],
+            everyonewatchinglist: [],
+            isloading: false,
+            iserror: true,
+          ),
+        );
+      }, (NewAndHotRespo resp) {
+        emit(
+          NewandhotState(
+            comingsoonlist:state.comingsoonlist,
+            everyonewatchinglist: resp.results,
+            isloading: false,
+            iserror: false,
+            currentPage: resp.page,
+            totalPages: resp.totalPages,
           ),
         );
       });
     });
   }
 }
+
+

@@ -10,10 +10,11 @@ import 'package:stream_space/domain/core/failures/main_failures.dart';
 class NewAndHotImpl implements NewAndHotService {
   @override
   Future<Either<MainFailures, NewAndHotRespo>>
-      newAndHotEveryoneWatching() async {
+      newAndHotEveryoneWatching({required int page}) async {
+       const url =ApiEndPoints.discovertv;
     try {
       final Response response =
-          await Dio(BaseOptions()).get(ApiEndPoints.discovertv);
+          await Dio(BaseOptions()).get('$url$page');
       if (response.statusCode == 200 || response.statusCode == 201) {
         final result = NewAndHotRespo.fromJson(response.data);
 
@@ -27,10 +28,11 @@ class NewAndHotImpl implements NewAndHotService {
   }
 
   @override
-  Future<Either<MainFailures, NewAndHotRespo>> newAndHotcomingsoon() async {
+  Future<Either<MainFailures, NewAndHotRespo>> newAndHotcomingsoon({required int page}) async {
+const url= ApiEndPoints.discovermovie;
     try {
       final Response response = await Dio(BaseOptions()).get(
-        ApiEndPoints.discovermovie,
+        '$url$page',
       );
       if (response.statusCode == 200 || response.statusCode == 201) {
         final result = NewAndHotRespo.fromJson(response.data);
