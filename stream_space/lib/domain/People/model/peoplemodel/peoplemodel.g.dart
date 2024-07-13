@@ -9,8 +9,9 @@ part of 'peoplemodel.dart';
 Peoplemodel _$PeoplemodelFromJson(Map<String, dynamic> json) => Peoplemodel(
       page: (json['page'] as num?)?.toInt(),
       results: (json['results'] as List<dynamic>?)
-          ?.map((e) => Result.fromJson(e as Map<String, dynamic>))
-          .toList(),
+              ?.map((e) => Result.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
       totalPages: (json['total_pages'] as num?)?.toInt(),
       totalResults: (json['total_results'] as num?)?.toInt(),
     );
@@ -29,8 +30,9 @@ Result _$ResultFromJson(Map<String, dynamic> json) => Result(
       originalName: json['original_name'] as String?,
       profilePath: json['profile_path'] as String?,
       knownFor: (json['known_for'] as List<dynamic>?)
-          ?.map((e) => KnownFor.fromJson(e as Map<String, dynamic>))
-          .toList(),
+              ?.map((e) => KnownFor.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$ResultToJson(Result instance) => <String, dynamic>{

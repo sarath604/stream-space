@@ -19,32 +19,38 @@ mixin _$PeopleEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getpepoles,
+    required TResult Function() getpeoplesNextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getpepoles,
+    TResult? Function()? getpeoplesNextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getpepoles,
+    TResult Function()? getpeoplesNextPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Getpepoles value) getpepoles,
+    required TResult Function(GetpeoplesNextPage value) getpeoplesNextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Getpepoles value)? getpepoles,
+    TResult? Function(GetpeoplesNextPage value)? getpeoplesNextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Getpepoles value)? getpepoles,
+    TResult Function(GetpeoplesNextPage value)? getpeoplesNextPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +113,7 @@ class _$GetpepolesImpl implements Getpepoles {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getpepoles,
+    required TResult Function() getpeoplesNextPage,
   }) {
     return getpepoles();
   }
@@ -115,6 +122,7 @@ class _$GetpepolesImpl implements Getpepoles {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getpepoles,
+    TResult? Function()? getpeoplesNextPage,
   }) {
     return getpepoles?.call();
   }
@@ -123,6 +131,7 @@ class _$GetpepolesImpl implements Getpepoles {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getpepoles,
+    TResult Function()? getpeoplesNextPage,
     required TResult orElse(),
   }) {
     if (getpepoles != null) {
@@ -135,6 +144,7 @@ class _$GetpepolesImpl implements Getpepoles {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Getpepoles value) getpepoles,
+    required TResult Function(GetpeoplesNextPage value) getpeoplesNextPage,
   }) {
     return getpepoles(this);
   }
@@ -143,6 +153,7 @@ class _$GetpepolesImpl implements Getpepoles {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Getpepoles value)? getpepoles,
+    TResult? Function(GetpeoplesNextPage value)? getpeoplesNextPage,
   }) {
     return getpepoles?.call(this);
   }
@@ -151,6 +162,7 @@ class _$GetpepolesImpl implements Getpepoles {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Getpepoles value)? getpepoles,
+    TResult Function(GetpeoplesNextPage value)? getpeoplesNextPage,
     required TResult orElse(),
   }) {
     if (getpepoles != null) {
@@ -165,11 +177,115 @@ abstract class Getpepoles implements PeopleEvent {
 }
 
 /// @nodoc
+abstract class _$$GetpeoplesNextPageImplCopyWith<$Res> {
+  factory _$$GetpeoplesNextPageImplCopyWith(_$GetpeoplesNextPageImpl value,
+          $Res Function(_$GetpeoplesNextPageImpl) then) =
+      __$$GetpeoplesNextPageImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetpeoplesNextPageImplCopyWithImpl<$Res>
+    extends _$PeopleEventCopyWithImpl<$Res, _$GetpeoplesNextPageImpl>
+    implements _$$GetpeoplesNextPageImplCopyWith<$Res> {
+  __$$GetpeoplesNextPageImplCopyWithImpl(_$GetpeoplesNextPageImpl _value,
+      $Res Function(_$GetpeoplesNextPageImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GetpeoplesNextPageImpl implements GetpeoplesNextPage {
+  const _$GetpeoplesNextPageImpl();
+
+  @override
+  String toString() {
+    return 'PeopleEvent.getpeoplesNextPage()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetpeoplesNextPageImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getpepoles,
+    required TResult Function() getpeoplesNextPage,
+  }) {
+    return getpeoplesNextPage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getpepoles,
+    TResult? Function()? getpeoplesNextPage,
+  }) {
+    return getpeoplesNextPage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getpepoles,
+    TResult Function()? getpeoplesNextPage,
+    required TResult orElse(),
+  }) {
+    if (getpeoplesNextPage != null) {
+      return getpeoplesNextPage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Getpepoles value) getpepoles,
+    required TResult Function(GetpeoplesNextPage value) getpeoplesNextPage,
+  }) {
+    return getpeoplesNextPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Getpepoles value)? getpepoles,
+    TResult? Function(GetpeoplesNextPage value)? getpeoplesNextPage,
+  }) {
+    return getpeoplesNextPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Getpepoles value)? getpepoles,
+    TResult Function(GetpeoplesNextPage value)? getpeoplesNextPage,
+    required TResult orElse(),
+  }) {
+    if (getpeoplesNextPage != null) {
+      return getpeoplesNextPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetpeoplesNextPage implements PeopleEvent {
+  const factory GetpeoplesNextPage() = _$GetpeoplesNextPageImpl;
+}
+
+/// @nodoc
 mixin _$PeopleState {
   List<Result>? get peoplelist => throw _privateConstructorUsedError;
   List<KnownFor> get peopledetailslist => throw _privateConstructorUsedError;
   bool get isloading => throw _privateConstructorUsedError;
   bool get iserror => throw _privateConstructorUsedError;
+  int? get currentPage => throw _privateConstructorUsedError;
+  int? get totalPages => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PeopleStateCopyWith<PeopleState> get copyWith =>
@@ -186,7 +302,9 @@ abstract class $PeopleStateCopyWith<$Res> {
       {List<Result>? peoplelist,
       List<KnownFor> peopledetailslist,
       bool isloading,
-      bool iserror});
+      bool iserror,
+      int? currentPage,
+      int? totalPages});
 }
 
 /// @nodoc
@@ -206,6 +324,8 @@ class _$PeopleStateCopyWithImpl<$Res, $Val extends PeopleState>
     Object? peopledetailslist = null,
     Object? isloading = null,
     Object? iserror = null,
+    Object? currentPage = freezed,
+    Object? totalPages = freezed,
   }) {
     return _then(_value.copyWith(
       peoplelist: freezed == peoplelist
@@ -224,6 +344,14 @@ class _$PeopleStateCopyWithImpl<$Res, $Val extends PeopleState>
           ? _value.iserror
           : iserror // ignore: cast_nullable_to_non_nullable
               as bool,
+      currentPage: freezed == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int?,
+      totalPages: freezed == totalPages
+          ? _value.totalPages
+          : totalPages // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -240,7 +368,9 @@ abstract class _$$PeopleStateImplCopyWith<$Res>
       {List<Result>? peoplelist,
       List<KnownFor> peopledetailslist,
       bool isloading,
-      bool iserror});
+      bool iserror,
+      int? currentPage,
+      int? totalPages});
 }
 
 /// @nodoc
@@ -258,6 +388,8 @@ class __$$PeopleStateImplCopyWithImpl<$Res>
     Object? peopledetailslist = null,
     Object? isloading = null,
     Object? iserror = null,
+    Object? currentPage = freezed,
+    Object? totalPages = freezed,
   }) {
     return _then(_$PeopleStateImpl(
       peoplelist: freezed == peoplelist
@@ -276,6 +408,14 @@ class __$$PeopleStateImplCopyWithImpl<$Res>
           ? _value.iserror
           : iserror // ignore: cast_nullable_to_non_nullable
               as bool,
+      currentPage: freezed == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int?,
+      totalPages: freezed == totalPages
+          ? _value.totalPages
+          : totalPages // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -287,7 +427,9 @@ class _$PeopleStateImpl implements _PeopleState {
       {final List<Result>? peoplelist,
       required final List<KnownFor> peopledetailslist,
       required this.isloading,
-      required this.iserror})
+      required this.iserror,
+      this.currentPage,
+      this.totalPages})
       : _peoplelist = peoplelist,
         _peopledetailslist = peopledetailslist;
 
@@ -314,10 +456,14 @@ class _$PeopleStateImpl implements _PeopleState {
   final bool isloading;
   @override
   final bool iserror;
+  @override
+  final int? currentPage;
+  @override
+  final int? totalPages;
 
   @override
   String toString() {
-    return 'PeopleState(peoplelist: $peoplelist, peopledetailslist: $peopledetailslist, isloading: $isloading, iserror: $iserror)';
+    return 'PeopleState(peoplelist: $peoplelist, peopledetailslist: $peopledetailslist, isloading: $isloading, iserror: $iserror, currentPage: $currentPage, totalPages: $totalPages)';
   }
 
   @override
@@ -331,7 +477,11 @@ class _$PeopleStateImpl implements _PeopleState {
                 .equals(other._peopledetailslist, _peopledetailslist) &&
             (identical(other.isloading, isloading) ||
                 other.isloading == isloading) &&
-            (identical(other.iserror, iserror) || other.iserror == iserror));
+            (identical(other.iserror, iserror) || other.iserror == iserror) &&
+            (identical(other.currentPage, currentPage) ||
+                other.currentPage == currentPage) &&
+            (identical(other.totalPages, totalPages) ||
+                other.totalPages == totalPages));
   }
 
   @override
@@ -340,7 +490,9 @@ class _$PeopleStateImpl implements _PeopleState {
       const DeepCollectionEquality().hash(_peoplelist),
       const DeepCollectionEquality().hash(_peopledetailslist),
       isloading,
-      iserror);
+      iserror,
+      currentPage,
+      totalPages);
 
   @JsonKey(ignore: true)
   @override
@@ -354,7 +506,9 @@ abstract class _PeopleState implements PeopleState {
       {final List<Result>? peoplelist,
       required final List<KnownFor> peopledetailslist,
       required final bool isloading,
-      required final bool iserror}) = _$PeopleStateImpl;
+      required final bool iserror,
+      final int? currentPage,
+      final int? totalPages}) = _$PeopleStateImpl;
 
   @override
   List<Result>? get peoplelist;
@@ -364,6 +518,10 @@ abstract class _PeopleState implements PeopleState {
   bool get isloading;
   @override
   bool get iserror;
+  @override
+  int? get currentPage;
+  @override
+  int? get totalPages;
   @override
   @JsonKey(ignore: true)
   _$$PeopleStateImplCopyWith<_$PeopleStateImpl> get copyWith =>

@@ -13,7 +13,7 @@ class PeopleCard extends StatelessWidget {
     required this.subtitle,
     required this.imageurl,
     required this.image1,
-    required this.image2,
+    required this.image2, 
   });
 
   @override

@@ -8,7 +8,7 @@ part 'peoplemodel.g.dart';
 class Peoplemodel {
   int? page;
   @JsonKey(name: 'results')
-  List<Result>? results;
+  List<Result> results;
   @JsonKey(name: 'total_pages')
   int? totalPages;
   @JsonKey(name: 'total_results')
@@ -16,7 +16,7 @@ class Peoplemodel {
 
   Peoplemodel({
     this.page,
-    this.results,
+    this.results = const[],
     this.totalPages,
     this.totalResults,
   });
@@ -43,14 +43,14 @@ class Result {
   String? profilePath;
   
   @JsonKey(name: 'known_for')
-  List<KnownFor>? knownFor;
+  List<KnownFor> knownFor;
 
   Result({
     this.id,
     this.knownForDepartment,
     this.originalName,
     this.profilePath,
-    this.knownFor,
+    this.knownFor= const[],
   });
 
   factory Result.fromJson(Map<String, dynamic> json) {

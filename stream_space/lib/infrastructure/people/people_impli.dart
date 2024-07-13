@@ -9,10 +9,13 @@ import 'package:stream_space/domain/core/failures/main_failures.dart';
 @LazySingleton(as: PeopleService)
 class PeopleImpl extends PeopleService {
   @override
-  Future<Either<MainFailures, Peoplemodel>> getpeopleImage() async {
+  Future<Either<MainFailures, Peoplemodel>> getpeopleImage({required int page}) async {
+    const url= ApiEndPoints.popularpeople;
+   
+  
     try {
       final Response response =
-          await Dio(BaseOptions()).get(ApiEndPoints.popularpeople);
+          await Dio(BaseOptions()).get('$url$page');
       if (response.statusCode == 200 || response.statusCode == 201) {
         final result = Peoplemodel.fromJson(response.data);
 
