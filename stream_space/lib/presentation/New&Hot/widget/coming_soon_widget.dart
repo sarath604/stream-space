@@ -92,9 +92,11 @@ class ComingSoonWidget extends StatelessWidget {
                         overflow: TextOverflow.clip,
 
                         style: const TextStyle(
-                            color: kWhite,
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,fontStyle: FontStyle.italic,),
+                          color: kWhite,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          fontStyle: FontStyle.italic,
+                        ),
                       ),
                     ),
                     const CustomButtonWidget(

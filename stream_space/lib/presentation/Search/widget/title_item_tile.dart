@@ -1,12 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:stream_space/core/colors/colors.dart';
 
 class TitleItemTile extends StatelessWidget {
   final String title;
   final String imageUrl;
-  const TitleItemTile(
-      {super.key, required this.title, required this.imageUrl});
+  const TitleItemTile({super.key, required this.title, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stream_space/application/people/people_bloc.dart';
 import 'package:stream_space/core/colors/colors.dart';
+import 'package:stream_space/core/string.dart';
 import 'package:stream_space/presentation/Peoples/widget/people_card.dart';
 
 class ScreenPeoples extends StatelessWidget {
@@ -7,6 +10,9 @@ class ScreenPeoples extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<PeopleBloc>(context).add(const PeopleEvent.getpepoles());
+    });
     return Scaffold(
       body: SafeArea(
         child: Column(children: [
@@ -46,16 +52,46 @@ class ScreenPeoples extends StatelessWidget {
               ],
             ),
           ),
-          Expanded(
-            child: ListView.separated(
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              itemBuilder: ((context, index) {
-                return const PeopleCard();
-              }),
-              separatorBuilder: ((context, index) => const SizedBox()),
-              itemCount: 10,
-            ),
+          BlocBuilder<PeopleBloc, PeopleState>(
+            builder: (context, state) {
+              if (state.isloading) {
+                return const Expanded(
+                  child: Center(
+                      child: CircularProgressIndicator(
+                    color: kgrey,
+                  )),
+                );
+              } else if (state.iserror) {
+                return const Center(child: Text('Error loading Peoples'));
+              } else if (state.peoplelist!.isEmpty) {
+                return const Center(child: Text('List is empty'));
+              } else {
+                return Expanded(
+                  child: ListView.separated(
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    itemBuilder: ((context, index) {
+                      final people = state.peoplelist![index];
+
+                      final reverseIndex = state.peoplelist!.length - 1 - index;
+                      final list = state.peoplelist![reverseIndex];
+
+                      return PeopleCard(
+                          title: people.originalName.toString(),
+                          subtitle: people.knownForDepartment.toString(),
+                          imageurl:
+                              '$imageAppendUrl${people.profilePath.toString()}',
+                          image1:
+                              '$imageAppendUrl${people.profilePath.toString()}',
+                          image2:
+                              '$imageAppendUrl${list.profilePath.toString()}');
+                    }),
+                    separatorBuilder: ((context, index) => const SizedBox()),
+                    itemCount: state.peoplelist!.length,
+                  ),
+                );
+              }
+            },
           ),
         ]),
       ),

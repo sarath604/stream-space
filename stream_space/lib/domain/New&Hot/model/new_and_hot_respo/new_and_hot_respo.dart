@@ -1,35 +1,32 @@
 import 'package:json_annotation/json_annotation.dart';
 
-
 part 'new_and_hot_respo.g.dart';
 
 @JsonSerializable()
 class NewAndHotRespo {
-	int? page;
-	List<Result> results;
-	@JsonKey(name: 'total_pages') 
-	int? totalPages;
-	@JsonKey(name: 'total_results') 
-	int? totalResults;
+  int? page;
+  List<Result> results;
+  @JsonKey(name: 'total_pages')
+  int? totalPages;
+  @JsonKey(name: 'total_results')
+  int? totalResults;
 
-	NewAndHotRespo({
-		this.page, 
-		this.results=const[], 
-		this.totalPages, 
-		this.totalResults, 
-	});
+  NewAndHotRespo({
+    this.page,
+    this.results = const [],
+    this.totalPages,
+    this.totalResults,
+  });
 
-	factory NewAndHotRespo.fromJson(Map<String, dynamic> json) {
-		return _$NewAndHotRespoFromJson(json);
-	}
+  factory NewAndHotRespo.fromJson(Map<String, dynamic> json) {
+    return _$NewAndHotRespoFromJson(json);
+  }
 
-	Map<String, dynamic> toJson() => _$NewAndHotRespoToJson(this);
+  Map<String, dynamic> toJson() => _$NewAndHotRespoToJson(this);
 }
-
 
 @JsonSerializable()
 class Result {
-
   @JsonKey(name: 'backdrop_path')
   String? backdropPath;
 
@@ -47,23 +44,22 @@ class Result {
 
   @JsonKey(name: 'poster_path')
   String? posterPath;
-  
+
   @JsonKey(name: 'release_date')
   String? releaseDate;
 
-   @JsonKey(name: 'first_air_date')
+  @JsonKey(name: 'first_air_date')
   String? firstairdate;
 
-  Result({
-    this.backdropPath,
-    this.id,
-    this.originalTitle,
-    this.originalname,
-    this.overview,
-    this.posterPath,
-    this.releaseDate,
-    this.firstairdate
-  });
+  Result(
+      {this.backdropPath,
+      this.id,
+      this.originalTitle,
+      this.originalname,
+      this.overview,
+      this.posterPath,
+      this.releaseDate,
+      this.firstairdate});
 
   factory Result.fromJson(Map<String, dynamic> json) {
     return _$ResultFromJson(json);

@@ -2,7 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:stream_space/core/colors/colors.dart';
 
 class PeopleCard extends StatelessWidget {
-  const PeopleCard({super.key});
+  final String imageurl;
+  final String title;
+  final String subtitle;
+  final String image1;
+  final String image2;
+  PeopleCard({
+    super.key,
+    required this.title,
+    required this.subtitle,
+    required this.imageurl,
+    required this.image1,
+    required this.image2,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +30,8 @@ class PeopleCard extends StatelessWidget {
                 height: 500,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  image: const DecorationImage(
-                    image: NetworkImage(
-                        'https://image.tmdb.org/t/p/w500/6bBCPmc55gzP7TR9Th4WbykrYd0.jpg'),
+                  image: DecorationImage(
+                    image: NetworkImage(imageurl),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -35,15 +46,15 @@ class PeopleCard extends StatelessWidget {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadiusDirectional.circular(20),
                           color: const Color.fromARGB(95, 0, 0, 0)),
-                      child: const Padding(
-                        padding: EdgeInsets.all(10),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Expanded(
                               child: Text(
-                                'Ana de Armas',
-                                style: TextStyle(
+                                title,
+                                style: const TextStyle(
                                   overflow: TextOverflow.ellipsis,
                                   color: kWhite,
                                   fontSize: 30,
@@ -53,9 +64,9 @@ class PeopleCard extends StatelessWidget {
                             ),
                             Expanded(
                               child: Text(
-                                'Acting',
-                                style: TextStyle(
-                                  color: Colors.black,
+                                subtitle,
+                                style: const TextStyle(
+                                  color: kgrey,
                                   fontSize: 20,
                                   fontStyle: FontStyle.italic,
                                 ),
@@ -79,28 +90,27 @@ class PeopleCard extends StatelessWidget {
               ),
             ],
           ),
-          const Padding(
-            padding: EdgeInsets.all(15),
+          Padding(
+            padding: const EdgeInsets.all(15),
             child: Stack(
               children: [
                 CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      'https://image.tmdb.org/t/p/w500/eOh4ubpOm2Igdg0QH2ghj0mFtC.jpg'),
+                  backgroundImage: NetworkImage(image1),
                   radius: 30,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 35),
+                  padding: const EdgeInsets.only(left: 35),
                   child: Stack(
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         radius: 32,
                         backgroundColor: kWhite,
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 2, bottom: 2, top: 2),
+                        padding:
+                            const EdgeInsets.only(left: 2, bottom: 2, top: 2),
                         child: CircleAvatar(
-                          backgroundImage: NetworkImage(
-                              'https://image.tmdb.org/t/p/w500/3vxvsmYLTf4jnr163SUlBIw51ee.jpg'),
+                          backgroundImage: NetworkImage(image2),
                           radius: 30,
                         ),
                       ),

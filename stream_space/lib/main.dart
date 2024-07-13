@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stream_space/application/New&Hot/newandhot_bloc.dart';
 import 'package:stream_space/application/downloads/downloads_bloc.dart';
+import 'package:stream_space/application/people/people_bloc.dart';
 import 'package:stream_space/application/search/bloc/search_bloc.dart';
 import 'package:stream_space/core/colors/colors.dart';
 import 'package:stream_space/domain/core/di/injectabl.dart';
@@ -29,6 +30,9 @@ class MyApp extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => getIt<NewandhotBloc>(),
+          ),
+           BlocProvider(
+            create: (context) => getIt<PeopleBloc>(),
           ),
         ],
         child: MaterialApp(

@@ -163,12 +163,12 @@ class BuildEveryonewatching extends StatelessWidget {
               itemBuilder: (context, intex) {
                 final tv = state.everyonewatchinglist[intex];
                 return EveryoneWatchingWidget(
-                    date: tv.firstairdate??'No date',
-                    title: tv.originalname??'No title',
-                    overview: tv.overview??'No overview',
-                    imageurl: '$imageAppendUrl${tv.backdropPath}',
-                  );
-              } );
+                  date: tv.firstairdate ?? 'No date',
+                  title: tv.originalname ?? 'No title',
+                  overview: tv.overview ?? 'No overview',
+                  imageurl: '$imageAppendUrl${tv.backdropPath}',
+                );
+              });
         }
       },
     );

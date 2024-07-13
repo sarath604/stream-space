@@ -9,7 +9,7 @@ import 'package:stream_space/presentation/Search/screen_search.dart';
 import 'package:stream_space/presentation/main_page/widgets/bottom_nav.dart';
 
 class ScreenMainPage extends StatelessWidget {
-   const ScreenMainPage({super.key});
+  const ScreenMainPage({super.key});
 
   final _page = const [
     ScreenHome(),
@@ -20,33 +20,33 @@ class ScreenMainPage extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return 
-       ValueListenableBuilder(
+    return ValueListenableBuilder(
         valueListenable: scrollNotifier,
         builder: (context, index, _) {
           return NotificationListener<UserScrollNotification>(
-            onNotification: (notification) {
-              final ScrollDirection direction = notification.direction;
+              onNotification: (notification) {
+                final ScrollDirection direction = notification.direction;
 
-              if (direction == ScrollDirection.reverse) {
-                scrollNotifier.value = false;
-              } else if (direction == ScrollDirection.forward) {
-                scrollNotifier.value = true;
-              }
+                if (direction == ScrollDirection.reverse) {
+                  scrollNotifier.value = false;
+                } else if (direction == ScrollDirection.forward) {
+                  scrollNotifier.value = true;
+                }
 
-              return true;
-            },
-      child: Scaffold(
-        body: SafeArea(
-          child: ValueListenableBuilder(
-              valueListenable: indexchangeNotifier,
-              builder: (context, indext, _) {
-                return _page[indext];
-              }),
-        ),
-        bottomNavigationBar:scrollNotifier.value == true? const BottomNavigationWidget():kHeight,
-      )
-    );
-       }
-);}
+                return true;
+              },
+              child: Scaffold(
+                body: SafeArea(
+                  child: ValueListenableBuilder(
+                      valueListenable: indexchangeNotifier,
+                      builder: (context, indext, _) {
+                        return _page[indext];
+                      }),
+                ),
+                bottomNavigationBar: scrollNotifier.value == true
+                    ? const BottomNavigationWidget()
+                    : kHeight,
+              ));
+        });
+  }
 }

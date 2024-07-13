@@ -46,7 +46,7 @@ class NewandhotBloc extends Bloc<NewandhotEvent, NewandhotState> {
       });
     });
 
-    on<Everyonewatching>((event, emit)async {
+    on<Everyonewatching>((event, emit) async {
       emit(
         const NewandhotState(
           comingsoonlist: [],
@@ -70,7 +70,7 @@ class NewandhotBloc extends Bloc<NewandhotEvent, NewandhotState> {
         emit(
           NewandhotState(
             comingsoonlist: state.comingsoonlist,
-            everyonewatchinglist:resp.results ,
+            everyonewatchinglist: resp.results,
             isloading: false,
             iserror: false,
           ),

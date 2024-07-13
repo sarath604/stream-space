@@ -4,5 +4,5 @@ import 'package:stream_space/domain/core/failures/main_failures.dart';
 
 abstract class NewAndHotService {
   Future<Either<MainFailures, NewAndHotRespo>> newAndHotcomingsoon();
-   Future<Either<MainFailures, NewAndHotRespo>> newAndHotEveryoneWatching();
+  Future<Either<MainFailures, NewAndHotRespo>> newAndHotEveryoneWatching();
 }

@@ -19,17 +19,17 @@ class SearchResultWidget extends StatelessWidget {
           child: BlocBuilder<SearchBloc, SearchState>(
             builder: (context, state) {
               return GridView.count(
-                        shrinkWrap: true,
-                        crossAxisCount: 2,
-                        mainAxisSpacing: 10,
-                        crossAxisSpacing: 10,
-                        childAspectRatio: 1 / 1.6,
-                        children: List.generate(
-                            state.searchResultList.length,
-                            (index) {
-                              final movie = state.searchResultList[index];
-                              return MainCard(imageUrl: '$imageAppendUrl${movie.posterPath}');
-                            } ));
+                  shrinkWrap: true,
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10,
+                  childAspectRatio: 1 / 1.6,
+                  children:
+                      List.generate(state.searchResultList.length, (index) {
+                    final movie = state.searchResultList[index];
+                    return MainCard(
+                        imageUrl: '$imageAppendUrl${movie.posterPath}');
+                  }));
             },
           ),
         ),

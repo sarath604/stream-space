@@ -1,21 +1,20 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:stream_space/domain/People/model/peoplemodel/peoplemodel.dart';
+import 'package:stream_space/domain/People/people_service.dart';
 import 'package:stream_space/domain/core/api_end_points.dart';
 import 'package:stream_space/domain/core/failures/main_failures.dart';
-import 'package:stream_space/domain/search/model/search_respo/search_respo.dart';
-import 'package:stream_space/domain/search/search_service.dart';
 
-@LazySingleton(as: SearchService)
-class SearchImplement implements SearchService {
+@LazySingleton(as: PeopleService)
+class PeopleImpl extends PeopleService {
   @override
-  Future<Either<MainFailures, SearchRespo>> searchMovies(
-      {required String movieQuery}) async {
+  Future<Either<MainFailures, Peoplemodel>> getpeopleImage() async {
     try {
-      final Response response = await Dio(BaseOptions())
-          .get(ApiEndPoints.search, queryParameters: {'query': movieQuery});
+      final Response response =
+          await Dio(BaseOptions()).get(ApiEndPoints.popularpeople);
       if (response.statusCode == 200 || response.statusCode == 201) {
-        final result = SearchRespo.fromJson(response.data);
+        final result = Peoplemodel.fromJson(response.data);
 
         return Right(result);
       } else {

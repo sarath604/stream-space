@@ -12,7 +12,7 @@ class SearchIdleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SearchTextTitile(title: 'Top Searches'),
@@ -54,4 +54,3 @@ class SearchIdleWidget extends StatelessWidget {
     );
   }
 }
-

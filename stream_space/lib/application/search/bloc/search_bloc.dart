@@ -70,7 +70,7 @@ idle state
 Search result state
 */
     on<SearchMovie>((event, emit) async {
-        emit(
+      emit(
         const SearchState(
           searchResultList: [],
           idleList: [],
@@ -79,26 +79,27 @@ Search result state
         ),
       );
       // call search movie api
-     final searchResult = await _searchservice.searchMovies(movieQuery: event.movieQuery);
+      final searchResult =
+          await _searchservice.searchMovies(movieQuery: event.movieQuery);
       // show to ui
       searchResult.fold((MainFailures f) {
- emit(
-            const SearchState(
-              searchResultList: [],
-              idleList: [],
-              isLoading: false,
-              isError: true,
-            ),
-          );
+        emit(
+          const SearchState(
+            searchResultList: [],
+            idleList: [],
+            isLoading: false,
+            isError: true,
+          ),
+        );
       }, (SearchRespo r) {
- emit(
-            SearchState(
-              searchResultList: r.results,
-              idleList: [],
-              isLoading: false,
-              isError: false,
-            ),
-          );
+        emit(
+          SearchState(
+            searchResultList: r.results,
+            idleList: [],
+            isLoading: false,
+            isError: false,
+          ),
+        );
       });
     });
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:stream_space/application/downloads/downloads_bloc.dart';
+import 'package:stream_space/application/people/people_bloc.dart';
 import 'package:stream_space/core/colors/colors.dart';
 import 'package:stream_space/presentation/main_page/widgets/screen_main_page.dart';
 
@@ -20,9 +21,12 @@ class _ScreenSplashState extends State<ScreenSplash> {
 
   @override
   Widget build(BuildContext context) {
-     WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<DownloadsBloc>(context)
           .add(const DownloadsEvent.getDownloadsImage());
+    });
+     WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<PeopleBloc>(context).add(const PeopleEvent.getpepoles());
     });
     return Scaffold(
       backgroundColor: backgroundColor,
@@ -63,10 +67,10 @@ class _ScreenSplashState extends State<ScreenSplash> {
 
   Future<void> gotoScreenHome() async {
     await Future.delayed(
-      const Duration(seconds: 2),
+      const Duration(seconds: 3),
     );
     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx) {
-      return  const ScreenMainPage();
+      return const ScreenMainPage();
     }));
   }
 }

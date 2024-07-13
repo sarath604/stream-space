@@ -7,11 +7,12 @@ import 'package:stream_space/core/constants.dart';
 import 'package:stream_space/core/debounce.dart';
 import 'package:stream_space/presentation/Search/widget/search_result.dart';
 import 'package:stream_space/presentation/Search/widget/search_idle.dart';
- 
- final Debounce _debounce = Debounce(const Duration(milliseconds: 500));
+
+final Debounce _debounce = Debounce(const Duration(milliseconds: 500));
+
 class ScreenSearch extends StatelessWidget {
   const ScreenSearch({super.key});
- 
+
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -36,7 +37,7 @@ class ScreenSearch extends StatelessWidget {
                 ),
                 style: const TextStyle(color: kWhite),
                 onChanged: (value) {
-                  if (value.isEmpty){
+                  if (value.isEmpty) {
                     return;
                   }
                   _debounce(() {
