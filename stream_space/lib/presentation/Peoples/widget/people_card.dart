@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stream_space/core/colors/colors.dart';
+import 'package:stream_space/presentation/Peoples/widget/people_details.dart';
 
 class PeopleCard extends StatelessWidget {
   final String imageurl;
@@ -68,6 +69,7 @@ class PeopleCard extends StatelessWidget {
                                 style: const TextStyle(
                                   color: kgrey,
                                   fontSize: 20,
+                                  overflow: TextOverflow.ellipsis,
                                   fontStyle: FontStyle.italic,
                                 ),
                               ),
@@ -78,7 +80,11 @@ class PeopleCard extends StatelessWidget {
                     ),
                     const Spacer(),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                          return const PeopleDelailsCard();
+                        }));
+                      },
                       icon: const Icon(
                         Icons.keyboard_arrow_right_rounded,
                         color: kWhite,
