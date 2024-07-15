@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:stream_space/core/colors/colors.dart';
 import 'package:stream_space/core/constants.dart';
+import 'package:stream_space/core/string.dart';
+import 'package:stream_space/domain/People/model/peoplemodel/peoplemodel.dart';
 import 'package:stream_space/presentation/Peoples/widget/details_card.dart';
 
 class PeopleDelailsCard extends StatelessWidget {
-  const PeopleDelailsCard({super.key});
+  final String url;
+  final String detailstitle;
+  final String detailssubtitle;
+  List<KnownFor> detailslist;
+  PeopleDelailsCard(
+      {super.key,
+      required this.url,
+      required this.detailstitle,
+      required this.detailssubtitle,
+      required this.detailslist});
 
   @override
   Widget build(BuildContext context) {
@@ -14,23 +25,22 @@ class PeopleDelailsCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.only(left: 30, top: 30),
+            Padding(
+              padding: const EdgeInsets.only(left: 30, top: 30),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Stack(
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         radius: 50,
                         backgroundColor: Colors.white,
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 3, top: 3),
+                        padding: const EdgeInsets.only(left: 3, top: 3),
                         child: CircleAvatar(
                           radius: 47,
-                          backgroundImage: NetworkImage(
-                              'https://image.tmdb.org/t/p/w500/8ObNklHDi2hjdz0ayzJFB9jtqzm.jpg'),
+                          backgroundImage: NetworkImage(url),
                         ),
                       )
                     ],
@@ -39,16 +49,16 @@ class PeopleDelailsCard extends StatelessWidget {
                     width: 255,
                     height: 100,
                     child: Padding(
-                      padding: EdgeInsets.only(left: 15),
+                      padding: const EdgeInsets.only(left: 15),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           Text(
-                            'Ana de Armas ',
-                            style: TextStyle(
+                            detailstitle,
+                            style: const TextStyle(
                                 overflow: TextOverflow.ellipsis,
                                 color: kWhite,
                                 fontSize: 30,
@@ -56,8 +66,8 @@ class PeopleDelailsCard extends StatelessWidget {
                                 fontStyle: FontStyle.italic),
                           ),
                           Text(
-                            'Acting',
-                            style: TextStyle(
+                            detailssubtitle,
+                            style: const TextStyle(
                               color: kgrey,
                               fontSize: 20,
                               overflow: TextOverflow.ellipsis,
@@ -82,23 +92,23 @@ class PeopleDelailsCard extends StatelessWidget {
                 fontSize: 35,
                 fontWeight: FontWeight.bold,
               ),
-            ),kHeight,
+            ),
+            kHeight,
             Expanded(
               child: ListView.separated(
                 itemBuilder: (context, intex) {
-                  return const DetailsCard(
-                    date: '2014-10-15',
-                    title: 'My Fault',
-                    overview:
-                        'When a 17-year-old reports a sexual assault at her high school, an investigation upends her life and tests her relationships',
-                    imageurl:
-                        'https://image.tmdb.org/t/p/w500/qpBZE42SBLMJKNSxgW5wGc8Ip9e.jpg',
+                  final value = detailslist[intex];
+                  return DetailsCard(
+                    date: value.releaseDate.toString(),
+                    title: value.originalTitle.toString(),
+                    overview: value.overview.toString(),
+                    imageurl: '$imageAppendUrl${value.backdropPath.toString()}',
                     posterimageurl:
-                        'https://image.tmdb.org/t/p/w500/s678JxMMMDyj7TRSsK6hR2FTF7A.jpg',
+                        '$imageAppendUrl${value.posterPath.toString()}',
                   );
                 },
                 separatorBuilder: (context, intex) => const SizedBox(),
-                itemCount: 4,
+                itemCount: detailslist.length,
               ),
             )
           ],

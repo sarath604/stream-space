@@ -108,8 +108,15 @@ class _ScreenPeoplesState extends State<ScreenPeoples> {
                         final reverseIndex =
                             state.peoplelist!.length - 1 - index;
                         final list = state.peoplelist![reverseIndex];
+                        final knownForlists = people.knownFor;
 
                         return PeopleCard(
+                          detailslist: knownForlists,
+                          passurl:
+                              '$imageAppendUrl${people.profilePath.toString()}',
+                          passdetailstitle: people.originalName.toString(),
+                          passdetailssubtitle:
+                              people.knownForDepartment.toString(),
                           title: people.originalName.toString(),
                           subtitle: people.knownForDepartment.toString(),
                           image1:

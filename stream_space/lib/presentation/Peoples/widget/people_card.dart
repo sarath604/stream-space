@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stream_space/core/colors/colors.dart';
+import 'package:stream_space/domain/People/model/peoplemodel/peoplemodel.dart';
 import 'package:stream_space/presentation/Peoples/widget/people_details.dart';
 
 class PeopleCard extends StatelessWidget {
@@ -8,13 +9,22 @@ class PeopleCard extends StatelessWidget {
   final String subtitle;
   final String image1;
   final String image2;
+  final String passurl;
+  final String passdetailstitle;
+  final String passdetailssubtitle;
+  List<KnownFor> detailslist;
+
   PeopleCard({
     super.key,
     required this.title,
     required this.subtitle,
     required this.imageurl,
     required this.image1,
-    required this.image2, 
+    required this.image2,
+    required this.passurl,
+    required this.passdetailstitle,
+    required this.passdetailssubtitle,
+    required this.detailslist
   });
 
   @override
@@ -81,8 +91,14 @@ class PeopleCard extends StatelessWidget {
                     const Spacer(),
                     IconButton(
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                          return const PeopleDelailsCard();
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return PeopleDelailsCard(
+                            detailslist:detailslist,
+                            url: passurl,
+                            detailstitle: passdetailstitle,
+                            detailssubtitle: passdetailssubtitle,
+                          );
                         }));
                       },
                       icon: const Icon(
