@@ -45,10 +45,22 @@ class NumberMainCard extends StatelessWidget {
                 ),
               );
             } else if (state.iserror) {
-              return const Center(
-                  child: Text('Error loading Everyones watching'));
+              return  Center(
+                child: Container(
+                  width: 150,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Center(
+                    child: CircularProgressIndicator(
+                     color: kgrey, 
+                    ),
+                  ),
+                ),
+              );
             } else if (state.everyonewatchinglist.isEmpty) {
-              return const Center(child: Text('List is empty'));
+              return const Center(child: Text('List is empty',style: TextStyle(color: kWhite)));
             } else {
               return LimitedBox(
                 maxHeight: 200,

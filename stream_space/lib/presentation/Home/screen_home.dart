@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:stream_space/application/New&Hot/newandhot_bloc.dart';
+import 'package:stream_space/application/search/bloc/search_bloc.dart';
 import 'package:stream_space/core/colors/colors.dart';
 import 'package:stream_space/core/constants.dart';
 import 'package:stream_space/presentation/Home/widget/background_card.dart';
@@ -23,6 +24,9 @@ class ScreenHome extends StatelessWidget {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<NewandhotBloc>(context)
           .add(const NewandhotEvent.everyonewatching());
+    });
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<SearchBloc>(context).add(const Initialize());
     });
 
     return Scaffold(

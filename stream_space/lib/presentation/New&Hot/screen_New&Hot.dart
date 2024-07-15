@@ -129,9 +129,9 @@ class _BuildcomingsoonState extends State<Buildcomingsoon> {
             ),
           );
         } else if (state.iserror) {
-          return const Center(child: Text('Error loading comingsoon'));
+          return const Center(child: Text('Error network issue',style: TextStyle(color: kWhite),));
         } else if (state.comingsoonlist.isEmpty) {
-          return const Center(child: Text('List is empty'));
+          return const Center(child: Text('List is empty',style: TextStyle(color: kWhite)));
         } else {
           return ListView.builder(
             controller: _scrollController,
@@ -218,9 +218,9 @@ class _BuildEveryonewatchingState extends State<BuildEveryonewatching> {
             ),
           );
         } else if (state.iserror) {
-          return const Center(child: Text('Error loading Everyones watching'));
+          return const Center(child: Text('Error network issue',style: TextStyle(color: kWhite)));
         } else if (state.everyonewatchinglist.isEmpty) {
-          return const Center(child: Text('List is empty'));
+          return const Center(child: Text('List is empty',style: TextStyle(color: kWhite)));
         } else {
           return ListView.builder(
             controller: _scrollController,

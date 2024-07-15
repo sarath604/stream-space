@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:stream_space/application/New&Hot/newandhot_bloc.dart';
 import 'package:stream_space/application/downloads/downloads_bloc.dart';
 import 'package:stream_space/application/people/people_bloc.dart';
+import 'package:stream_space/application/search/bloc/search_bloc.dart';
 import 'package:stream_space/core/colors/colors.dart';
 import 'package:stream_space/presentation/main_page/widgets/screen_main_page.dart';
 
@@ -36,6 +37,9 @@ class _ScreenSplashState extends State<ScreenSplash> {
     });
      WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<PeopleBloc>(context).add(const PeopleEvent.getpepoles());
+    });
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<SearchBloc>(context).add(const Initialize());
     });
     return Scaffold(
       backgroundColor: backgroundColor,
@@ -76,7 +80,7 @@ class _ScreenSplashState extends State<ScreenSplash> {
 
   Future<void> gotoScreenHome() async {
     await Future.delayed(
-      const Duration(seconds: 3),
+      const Duration(seconds: 4),
     );
     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx) {
       return const ScreenMainPage();

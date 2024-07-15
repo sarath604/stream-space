@@ -94,9 +94,23 @@ class _ScreenPeoplesState extends State<ScreenPeoples> {
                     ),
                   );
                 } else if (state.iserror) {
-                  return const Center(child: Text('Error loading Peoples'));
+                  return const Expanded(
+                    child: Center(
+                      child: Text(
+                        'Error network issue',
+                        style: TextStyle(color: kWhite),
+                      ),
+                    ),
+                  );
                 } else if (state.peoplelist!.isEmpty) {
-                  return const Center(child: Text('List is empty'));
+                  return const Expanded(
+                    child: Center(
+                      child: Text(
+                        'List is empty',
+                        style: TextStyle(color: kWhite),
+                      ),
+                    ),
+                  );
                 } else {
                   return Expanded(
                     child: ListView.separated(

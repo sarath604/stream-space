@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:stream_space/application/downloads/downloads_bloc.dart';
+import 'package:stream_space/application/search/bloc/search_bloc.dart';
 import 'package:stream_space/core/colors/colors.dart';
 import 'package:stream_space/core/constants.dart';
 import 'package:stream_space/core/string.dart';
@@ -28,69 +28,73 @@ class HomeMainCardOne extends StatelessWidget {
             ),
           ),
           kHeight,
-          BlocBuilder<DownloadsBloc, DownloadsState>(
+          BlocBuilder<SearchBloc, SearchState>(
             builder: (context, state) {
               if (state.isLoading) {
-                return Center(
-                  child: Container(
-                    width: 150,
-                    height: 200,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Center(
-                      child: CircularProgressIndicator(
-                        color: kgrey,
-                      ),
-                    ),
+                return const Center(
+                  child: CircularProgressIndicator(
+                    color: kgrey,
                   ),
                 );
-              } else if (state.downloads!.isEmpty) {
-                return Center(
-                  child: Container(
-                    width: 150,
-                    height: 200,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Center(
-                      child: CircularProgressIndicator(
-                        color: kgrey,
-                      ),
+              } else if (state.isError) {
+                 return  Center(
+                child: Container(
+                  width: 150,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Center(
+                    child: CircularProgressIndicator(
+                     color: kgrey, 
                     ),
                   ),
-                );
-              } else {
-                return LimitedBox(
-                  maxHeight: 200,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    children: List.generate(state.downloads!.length, (index) {
-                      final movie = state.downloads![index];
-                      return GestureDetector(
-                        onTap: () {
-                          Navigator.of(context)
-                              .push(MaterialPageRoute(builder: (context) {
-                            return FilmDetailCard(
-                              filmtitle: movie.title.toString(),
-                              filmposterurl:
-                                  '$imageAppendUrl${movie.posterPath}',
-                              filmbackdropurl:
-                                  '$imageAppendUrl${movie.backdroppath}',
-                              filmdate: movie.release_date.toString(),
-                              filmoverview: movie.overview.toString(),
-                            );
-                          }));
-                        },
-                        child: ListViewCard(
-                          image: '$imageAppendUrl${movie.posterPath}',
-                        ),
-                      );
-                    }),
+                ),
+              );
+              } else if (state.idleList.isEmpty) {
+                 return  Center(
+                child: Container(
+                  width: 150,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                );
+                  child: const Center(
+                    child: CircularProgressIndicator(
+                     color: kgrey, 
+                    ),
+                  ),
+                ),
+              );
               }
+              return LimitedBox(
+                maxHeight: 200,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  children: List.generate(state.idleList.length, (index) {
+                    final movie = state.idleList[index];
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return FilmDetailCard(
+                            filmtitle: movie.title.toString(),
+                            filmposterurl: '$imageAppendUrl${movie.posterPath}',
+                            filmbackdropurl:
+                                '$imageAppendUrl${movie.backdroppath}',
+                            filmdate: movie.release_date.toString(),
+                            filmoverview: movie.overview.toString(),
+                          );
+                        }));
+                      },
+                      child: ListViewCard(
+                        image: '$imageAppendUrl${movie.posterPath}',
+                      ),
+                    );
+                  }),
+                ),
+              );
             },
           )
         ],

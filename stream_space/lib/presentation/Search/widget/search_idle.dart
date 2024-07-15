@@ -28,11 +28,11 @@ class SearchIdleWidget extends StatelessWidget {
                 );
               } else if (state.isError) {
                 return const Center(
-                  child: Text('Error while getting data'),
+                  child: Text('Error network issue',style: TextStyle(color: kWhite)),
                 );
               } else if (state.idleList.isEmpty) {
                 return const Center(
-                  child: Text('List is empty'),
+                  child: Text('List is empty',style: TextStyle(color: kWhite)),
                 );
               }
               return ListView.separated(
