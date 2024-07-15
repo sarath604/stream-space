@@ -1,11 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:stream_space/core/colors/colors.dart';
+import 'package:stream_space/presentation/main_page/widgets/film_details.dart';
 
 class TitleItemTile extends StatelessWidget {
   final String title;
   final String imageUrl;
-  const TitleItemTile({super.key, required this.title, required this.imageUrl});
-
+  final String filmtitle;
+  final String filmbackdropurl;
+  final String filmposterurl;
+   final String filmoverview;
+  final String filmdate;
+  const TitleItemTile({
+    super.key,
+    required this.title,
+    required this.imageUrl,
+    required this.filmtitle,
+    required this.filmposterurl,
+    required this.filmbackdropurl,
+      required this.filmdate,
+    required this.filmoverview,
+  });
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -38,7 +52,18 @@ class TitleItemTile extends StatelessWidget {
               ),
               const Spacer(),
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
+                      return FilmDetailCard(
+                        filmtitle: filmtitle,
+                        filmbackdropurl: filmbackdropurl,
+                        filmposterurl: filmposterurl,
+                        filmdate:filmdate ,
+                        filmoverview:filmoverview ,
+                      );
+                    }));
+                  },
                   icon: const Icon(
                     Icons.keyboard_arrow_right_rounded,
                     color: kWhite,

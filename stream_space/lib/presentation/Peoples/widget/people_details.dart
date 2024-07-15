@@ -5,6 +5,7 @@ import 'package:stream_space/core/string.dart';
 import 'package:stream_space/domain/People/model/peoplemodel/peoplemodel.dart';
 import 'package:stream_space/presentation/Peoples/widget/details_card.dart';
 
+// ignore: must_be_immutable
 class PeopleDelailsCard extends StatelessWidget {
   final String url;
   final String detailstitle;

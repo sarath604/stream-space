@@ -42,6 +42,11 @@ class SearchIdleWidget extends StatelessWidget {
                   return TitleItemTile(
                     title: movie.title ?? 'No title provided',
                     imageUrl: '$imageAppendUrl${movie.backdroppath}',
+                    filmtitle: movie.title ?? 'No title provided',
+                    filmbackdropurl:'$imageAppendUrl${movie.backdroppath}' ,
+                    filmposterurl: '$imageAppendUrl${movie.posterPath}',
+                    filmdate: movie.release_date??'No date provided',
+                    filmoverview: movie.overview??'No overview provided',
                   );
                 }),
                 separatorBuilder: ((context, index) => kHeight),

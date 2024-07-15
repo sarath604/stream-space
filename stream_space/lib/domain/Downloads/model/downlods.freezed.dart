@@ -27,6 +27,10 @@ mixin _$Downloads {
   String? get backdroppath => throw _privateConstructorUsedError;
   @JsonKey(name: "title")
   String? get title => throw _privateConstructorUsedError;
+  @JsonKey(name: "overview")
+  String? get overview => throw _privateConstructorUsedError;
+  @JsonKey(name: "release_date")
+  String? get release_date => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +46,9 @@ abstract class $DownloadsCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: "poster_path") String? posterPath,
       @JsonKey(name: "backdrop_path") String? backdroppath,
-      @JsonKey(name: "title") String? title});
+      @JsonKey(name: "title") String? title,
+      @JsonKey(name: "overview") String? overview,
+      @JsonKey(name: "release_date") String? release_date});
 }
 
 /// @nodoc
@@ -61,6 +67,8 @@ class _$DownloadsCopyWithImpl<$Res, $Val extends Downloads>
     Object? posterPath = freezed,
     Object? backdroppath = freezed,
     Object? title = freezed,
+    Object? overview = freezed,
+    Object? release_date = freezed,
   }) {
     return _then(_value.copyWith(
       posterPath: freezed == posterPath
@@ -74,6 +82,14 @@ class _$DownloadsCopyWithImpl<$Res, $Val extends Downloads>
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      overview: freezed == overview
+          ? _value.overview
+          : overview // ignore: cast_nullable_to_non_nullable
+              as String?,
+      release_date: freezed == release_date
+          ? _value.release_date
+          : release_date // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -90,7 +106,9 @@ abstract class _$$DownloadsImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: "poster_path") String? posterPath,
       @JsonKey(name: "backdrop_path") String? backdroppath,
-      @JsonKey(name: "title") String? title});
+      @JsonKey(name: "title") String? title,
+      @JsonKey(name: "overview") String? overview,
+      @JsonKey(name: "release_date") String? release_date});
 }
 
 /// @nodoc
@@ -107,6 +125,8 @@ class __$$DownloadsImplCopyWithImpl<$Res>
     Object? posterPath = freezed,
     Object? backdroppath = freezed,
     Object? title = freezed,
+    Object? overview = freezed,
+    Object? release_date = freezed,
   }) {
     return _then(_$DownloadsImpl(
       posterPath: freezed == posterPath
@@ -121,6 +141,14 @@ class __$$DownloadsImplCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
+      overview: freezed == overview
+          ? _value.overview
+          : overview // ignore: cast_nullable_to_non_nullable
+              as String?,
+      release_date: freezed == release_date
+          ? _value.release_date
+          : release_date // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -131,7 +159,9 @@ class _$DownloadsImpl implements _Downloads {
   const _$DownloadsImpl(
       {@JsonKey(name: "poster_path") required this.posterPath,
       @JsonKey(name: "backdrop_path") required this.backdroppath,
-      @JsonKey(name: "title") required this.title});
+      @JsonKey(name: "title") required this.title,
+      @JsonKey(name: "overview") required this.overview,
+      @JsonKey(name: "release_date") required this.release_date});
 
   factory _$DownloadsImpl.fromJson(Map<String, dynamic> json) =>
       _$$DownloadsImplFromJson(json);
@@ -146,10 +176,16 @@ class _$DownloadsImpl implements _Downloads {
   @override
   @JsonKey(name: "title")
   final String? title;
+  @override
+  @JsonKey(name: "overview")
+  final String? overview;
+  @override
+  @JsonKey(name: "release_date")
+  final String? release_date;
 
   @override
   String toString() {
-    return 'Downloads(posterPath: $posterPath, backdroppath: $backdroppath, title: $title)';
+    return 'Downloads(posterPath: $posterPath, backdroppath: $backdroppath, title: $title, overview: $overview, release_date: $release_date)';
   }
 
   @override
@@ -161,12 +197,17 @@ class _$DownloadsImpl implements _Downloads {
                 other.posterPath == posterPath) &&
             (identical(other.backdroppath, backdroppath) ||
                 other.backdroppath == backdroppath) &&
-            (identical(other.title, title) || other.title == title));
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.overview, overview) ||
+                other.overview == overview) &&
+            (identical(other.release_date, release_date) ||
+                other.release_date == release_date));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, posterPath, backdroppath, title);
+  int get hashCode => Object.hash(
+      runtimeType, posterPath, backdroppath, title, overview, release_date);
 
   @JsonKey(ignore: true)
   @override
@@ -184,9 +225,12 @@ class _$DownloadsImpl implements _Downloads {
 
 abstract class _Downloads implements Downloads {
   const factory _Downloads(
-      {@JsonKey(name: "poster_path") required final String? posterPath,
-      @JsonKey(name: "backdrop_path") required final String? backdroppath,
-      @JsonKey(name: "title") required final String? title}) = _$DownloadsImpl;
+          {@JsonKey(name: "poster_path") required final String? posterPath,
+          @JsonKey(name: "backdrop_path") required final String? backdroppath,
+          @JsonKey(name: "title") required final String? title,
+          @JsonKey(name: "overview") required final String? overview,
+          @JsonKey(name: "release_date") required final String? release_date}) =
+      _$DownloadsImpl;
 
   factory _Downloads.fromJson(Map<String, dynamic> json) =
       _$DownloadsImpl.fromJson;
@@ -200,6 +244,12 @@ abstract class _Downloads implements Downloads {
   @override
   @JsonKey(name: "title")
   String? get title;
+  @override
+  @JsonKey(name: "overview")
+  String? get overview;
+  @override
+  @JsonKey(name: "release_date")
+  String? get release_date;
   @override
   @JsonKey(ignore: true)
   _$$DownloadsImplCopyWith<_$DownloadsImpl> get copyWith =>

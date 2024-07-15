@@ -3,6 +3,7 @@ import 'package:stream_space/core/colors/colors.dart';
 import 'package:stream_space/domain/People/model/peoplemodel/peoplemodel.dart';
 import 'package:stream_space/presentation/Peoples/widget/people_details.dart';
 
+// ignore: must_be_immutable
 class PeopleCard extends StatelessWidget {
   final String imageurl;
   final String title;
