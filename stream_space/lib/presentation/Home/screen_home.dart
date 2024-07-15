@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stream_space/application/New&Hot/newandhot_bloc.dart';
 import 'package:stream_space/core/colors/colors.dart';
 import 'package:stream_space/core/constants.dart';
 import 'package:stream_space/presentation/Home/widget/background_card.dart';
-import 'package:stream_space/presentation/Home/widget/main_card.dart';
+import 'package:stream_space/presentation/Home/widget/mainCards/main_card_one.dart';
+import 'package:stream_space/presentation/Home/widget/mainCards/main_card_two.dart';
 import 'package:stream_space/presentation/Home/widget/number_card.dart';
 
 ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
@@ -13,6 +16,15 @@ class ScreenHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<NewandhotBloc>(context)
+          .add(const NewandhotEvent.comingsoon());
+    });
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<NewandhotBloc>(context)
+          .add(const NewandhotEvent.everyonewatching());
+    });
+
     return Scaffold(
       body: ValueListenableBuilder(
         valueListenable: scrollNotifier,
@@ -34,11 +46,9 @@ class ScreenHome extends StatelessWidget {
                 ListView(
                   children: const [
                     BackgroundCard(),
-                    HomeMainCard(title: 'Released in the past year'),
-                    HomeMainCard(title: 'Trending Now'),
-                    NumberMainCard(title: 'Top 10 TV Shows in India Today'),
-                    HomeMainCard(title: 'Tense Dramas'),
-                    HomeMainCard(title: 'South Indian Cinema'),
+                    HomeMainCardTwo(title: 'Upcoming Movies'),
+                    NumberMainCard(title: 'Top 10 TV Shows'),
+                    HomeMainCardOne(title: 'Trending Now'),
                   ],
                 ),
                 scrollNotifier.value == true

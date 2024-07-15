@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stream_space/application/New&Hot/newandhot_bloc.dart';
 import 'package:stream_space/application/downloads/downloads_bloc.dart';
 import 'package:stream_space/application/people/people_bloc.dart';
 import 'package:stream_space/core/colors/colors.dart';
@@ -21,6 +22,14 @@ class _ScreenSplashState extends State<ScreenSplash> {
 
   @override
   Widget build(BuildContext context) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<NewandhotBloc>(context)
+          .add(const NewandhotEvent.comingsoon());
+    });
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<NewandhotBloc>(context)
+          .add(const NewandhotEvent.everyonewatching());
+    });
     WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<DownloadsBloc>(context)
           .add(const DownloadsEvent.getDownloadsImage());
@@ -67,7 +76,7 @@ class _ScreenSplashState extends State<ScreenSplash> {
 
   Future<void> gotoScreenHome() async {
     await Future.delayed(
-      const Duration(seconds: 3),
+      const Duration(seconds: 5),
     );
     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx) {
       return const ScreenMainPage();

@@ -1,8 +1,12 @@
 import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stream_space/application/New&Hot/newandhot_bloc.dart';
 import 'package:stream_space/core/colors/colors.dart';
 import 'package:stream_space/core/constants.dart';
+import 'package:stream_space/core/string.dart';
+import 'package:stream_space/presentation/main_page/widgets/film_details.dart';
 
 class NumberMainCard extends StatelessWidget {
   final String title;
@@ -24,17 +28,61 @@ class NumberMainCard extends StatelessWidget {
             ),
           ),
           kHeight,
-          LimitedBox(
-            maxHeight: 200,
-            child: SizedBox(
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                shrinkWrap: true,
-                children: List.generate(
-                    10, (index) => ListViewNumberCard(index: index)),
-              ),
-            ),
-          )
+          BlocBuilder<NewandhotBloc, NewandhotState>(builder: (context, state) {
+            if (state.isloading) {
+              return Center(
+                child: Container(
+                  width: 150,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Center(
+                    child: CircularProgressIndicator(
+                     color: kgrey, 
+                    ),
+                  ),
+                ),
+              );
+            } else if (state.iserror) {
+              return const Center(
+                  child: Text('Error loading Everyones watching'));
+            } else if (state.everyonewatchinglist.isEmpty) {
+              return const Center(child: Text('List is empty'));
+            } else {
+              return LimitedBox(
+                maxHeight: 200,
+                child: SizedBox(
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    children: List.generate(10, (index) {
+                      final tv = state.everyonewatchinglist[index];
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) {
+                            return FilmDetailCard(
+                              filmtitle: tv.originalname.toString(),
+                              filmposterurl: '$imageAppendUrl${tv.posterPath}',
+                              filmbackdropurl:
+                                  '$imageAppendUrl${tv.backdropPath}',
+                              filmdate: tv.firstairdate.toString(),
+                              filmoverview: tv.overview.toString(),
+                            );
+                          }));
+                        },
+                        child: ListViewNumberCard(
+                          index: index,
+                          image: '$imageAppendUrl${tv.posterPath.toString()}',
+                        ),
+                      );
+                    }),
+                  ),
+                ),
+              );
+            }
+          })
         ],
       ),
     );
@@ -42,8 +90,10 @@ class NumberMainCard extends StatelessWidget {
 }
 
 class ListViewNumberCard extends StatelessWidget {
+  final String image;
   final int index;
-  const ListViewNumberCard({super.key, required this.index});
+  const ListViewNumberCard(
+      {super.key, required this.index, required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +110,7 @@ class ListViewNumberCard extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
-                  image: NetworkImage(imageUrl3[index]),
+                  image: NetworkImage(image),
                   fit: BoxFit.cover,
                 ),
               ),
