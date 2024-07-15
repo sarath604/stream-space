@@ -65,7 +65,7 @@ class HomeMainCardTwo extends StatelessWidget {
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,
-                    children: List.generate(10, (index) {
+                    children: List.generate(state.comingsoonlist.length, (index) {
                       final movie = state.comingsoonlist[index];
                       return GestureDetector(
                         onTap: () {

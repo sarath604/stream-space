@@ -76,7 +76,7 @@ class _ScreenSplashState extends State<ScreenSplash> {
 
   Future<void> gotoScreenHome() async {
     await Future.delayed(
-      const Duration(seconds: 5),
+      const Duration(seconds: 3),
     );
     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx) {
       return const ScreenMainPage();

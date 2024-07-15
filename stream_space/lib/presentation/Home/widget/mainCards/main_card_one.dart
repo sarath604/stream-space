@@ -66,7 +66,7 @@ class HomeMainCardOne extends StatelessWidget {
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,
-                    children: List.generate(10, (index) {
+                    children: List.generate(state.downloads!.length, (index) {
                       final movie = state.downloads![index];
                       return GestureDetector(
                         onTap: () {
