@@ -22,13 +22,17 @@ Downloads _$DownloadsFromJson(Map<String, dynamic> json) {
 mixin _$Downloads {
 // ignore: invalid_annotation_target
   @JsonKey(name: "poster_path")
-  String? get posterPath => throw _privateConstructorUsedError;
+  String? get posterPath =>
+      throw _privateConstructorUsedError; // ignore: invalid_annotation_target
   @JsonKey(name: "backdrop_path")
-  String? get backdroppath => throw _privateConstructorUsedError;
+  String? get backdroppath =>
+      throw _privateConstructorUsedError; // ignore: invalid_annotation_target
   @JsonKey(name: "title")
-  String? get title => throw _privateConstructorUsedError;
+  String? get title =>
+      throw _privateConstructorUsedError; // ignore: invalid_annotation_target
   @JsonKey(name: "overview")
-  String? get overview => throw _privateConstructorUsedError;
+  String? get overview =>
+      throw _privateConstructorUsedError; // ignore: invalid_annotation_target
   @JsonKey(name: "release_date")
   String? get release_date => throw _privateConstructorUsedError;
 
@@ -170,15 +174,19 @@ class _$DownloadsImpl implements _Downloads {
   @override
   @JsonKey(name: "poster_path")
   final String? posterPath;
+// ignore: invalid_annotation_target
   @override
   @JsonKey(name: "backdrop_path")
   final String? backdroppath;
+// ignore: invalid_annotation_target
   @override
   @JsonKey(name: "title")
   final String? title;
+// ignore: invalid_annotation_target
   @override
   @JsonKey(name: "overview")
   final String? overview;
+// ignore: invalid_annotation_target
   @override
   @JsonKey(name: "release_date")
   final String? release_date;
@@ -238,16 +246,16 @@ abstract class _Downloads implements Downloads {
   @override // ignore: invalid_annotation_target
   @JsonKey(name: "poster_path")
   String? get posterPath;
-  @override
+  @override // ignore: invalid_annotation_target
   @JsonKey(name: "backdrop_path")
   String? get backdroppath;
-  @override
+  @override // ignore: invalid_annotation_target
   @JsonKey(name: "title")
   String? get title;
-  @override
+  @override // ignore: invalid_annotation_target
   @JsonKey(name: "overview")
   String? get overview;
-  @override
+  @override // ignore: invalid_annotation_target
   @JsonKey(name: "release_date")
   String? get release_date;
   @override

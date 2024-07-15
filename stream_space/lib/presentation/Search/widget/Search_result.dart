@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:stream_space/application/search/bloc/search_bloc.dart';
 import 'package:stream_space/core/constants.dart';
 import 'package:stream_space/core/string.dart';
 import 'package:stream_space/presentation/Search/widget/title.dart';
+import 'package:stream_space/presentation/main_page/widgets/film_details.dart';
 
 class SearchResultWidget extends StatelessWidget {
   const SearchResultWidget({super.key});
@@ -27,8 +29,22 @@ class SearchResultWidget extends StatelessWidget {
                   children:
                       List.generate(state.searchResultList.length, (index) {
                     final movie = state.searchResultList[index];
-                    return MainCard(
-                        imageUrl: '$imageAppendUrl${movie.posterPath}');
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return FilmDetailCard(
+                            filmtitle: movie.originalTitle.toString(),
+                            filmposterurl: '$imageAppendUrl${movie.posterPath}',
+                            filmbackdropurl: '$imageAppendUrl${movie.backdroppath}',
+                            filmdate: movie.releasedate.toString(),
+                            filmoverview: movie.overview.toString(),
+                          );
+                        }));
+                      },
+                      child: MainCard(
+                          imageUrl: '$imageAppendUrl${movie.posterPath}'),
+                    );
                   }));
             },
           ),

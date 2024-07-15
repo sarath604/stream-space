@@ -29,10 +29,22 @@ class SearchResultData {
   @JsonKey(name: 'poster_path')
   String? posterPath;
 
+  @JsonKey(name: 'overview')
+  String? overview;
+
+  @JsonKey(name: 'release_date')
+  String? releasedate;
+
+  @JsonKey(name: 'backdrop_path')
+  String? backdroppath;
+
   SearchResultData({
     this.id,
     this.originalTitle,
     this.posterPath,
+    this.backdroppath,
+    this.overview,
+    this.releasedate,
   });
 
   factory SearchResultData.fromJson(Map<String, dynamic> json) {
