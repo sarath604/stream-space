@@ -23,34 +23,15 @@ class EveryoneWatchingWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Stack(
-            children: [
-              Container(
-                width: size.width,
-                height: 200,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: NetworkImage(imageurl),
-                    fit: BoxFit.cover,
-                  ),
-                ),
+          Container(
+            width: size.width,
+            height: 200,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage(imageurl),
+                fit: BoxFit.cover,
               ),
-              Positioned(
-                bottom: 10,
-                right: 10,
-                child: CircleAvatar(
-                  radius: 20,
-                  backgroundColor: const Color.fromARGB(135, 52, 51, 51),
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.volume_off,
-                      size: 25,
-                    ),
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
           kHeight,
           Row(

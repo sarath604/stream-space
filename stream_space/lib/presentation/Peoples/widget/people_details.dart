@@ -85,13 +85,16 @@ class PeopleDelailsCard extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            const Text(
-              'Known For',
-              style: TextStyle(
-                overflow: TextOverflow.ellipsis,
-                color: kWhite,
-                fontSize: 35,
-                fontWeight: FontWeight.bold,
+            const Padding(
+              padding: EdgeInsets.only(left: 15),
+              child: Text(
+                'Known For',
+                style: TextStyle(
+                  overflow: TextOverflow.ellipsis,
+                  color: kWhite,
+                  fontSize: 35,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             kHeight,

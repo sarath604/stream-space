@@ -37,64 +37,66 @@ class HomeMainCardOne extends StatelessWidget {
                   ),
                 );
               } else if (state.isError) {
-                 return  Center(
-                child: Container(
-                  width: 150,
-                  height: 200,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: const Center(
-                    child: CircularProgressIndicator(
-                     color: kgrey, 
+                return Center(
+                  child: Container(
+                    width: 150,
+                    height: 200,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                  ),
-                ),
-              );
-              } else if (state.idleList.isEmpty) {
-                 return  Center(
-                child: Container(
-                  width: 150,
-                  height: 200,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: const Center(
-                    child: CircularProgressIndicator(
-                     color: kgrey, 
-                    ),
-                  ),
-                ),
-              );
-              }
-              return LimitedBox(
-                maxHeight: 200,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  shrinkWrap: true,
-                  children: List.generate(state.idleList.length, (index) {
-                    final movie = state.idleList[index];
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.of(context)
-                            .push(MaterialPageRoute(builder: (context) {
-                          return FilmDetailCard(
-                            filmtitle: movie.title.toString(),
-                            filmposterurl: '$imageAppendUrl${movie.posterPath}',
-                            filmbackdropurl:
-                                '$imageAppendUrl${movie.backdroppath}',
-                            filmdate: movie.release_date.toString(),
-                            filmoverview: movie.overview.toString(),
-                          );
-                        }));
-                      },
-                      child: ListViewCard(
-                        image: '$imageAppendUrl${movie.posterPath}',
+                    child: const Center(
+                      child: CircularProgressIndicator(
+                        color: kgrey,
                       ),
-                    );
-                  }),
-                ),
-              );
+                    ),
+                  ),
+                );
+              } else if (state.idleList.isEmpty) {
+                return Center(
+                  child: Container(
+                    width: 150,
+                    height: 200,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Center(
+                      child: CircularProgressIndicator(
+                        color: kgrey,
+                      ),
+                    ),
+                  ),
+                );
+              } else {
+                return LimitedBox(
+                  maxHeight: 200,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    children: List.generate(state.idleList.length, (index) {
+                      final movie = state.idleList[index];
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) {
+                            return FilmDetailCard(
+                              filmtitle: movie.title.toString(),
+                              filmposterurl:
+                                  '$imageAppendUrl${movie.posterPath}',
+                              filmbackdropurl:
+                                  '$imageAppendUrl${movie.backdroppath}',
+                              filmdate: movie.release_date.toString(),
+                              filmoverview: movie.overview.toString(),
+                            );
+                          }));
+                        },
+                        child: ListViewCard(
+                          image: '$imageAppendUrl${movie.posterPath}',
+                        ),
+                      );
+                    }),
+                  ),
+                );
+              }
             },
           )
         ],

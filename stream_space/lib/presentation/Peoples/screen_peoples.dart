@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:stream_space/application/people/people_bloc.dart';
 import 'package:stream_space/core/colors/colors.dart';
+import 'package:stream_space/core/constants.dart';
 import 'package:stream_space/core/string.dart';
 import 'package:stream_space/presentation/Peoples/widget/people_card.dart';
 
@@ -46,7 +47,7 @@ class _ScreenPeoplesState extends State<ScreenPeoples> {
         child: Column(
           children: [
             const Padding(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.all(15),
               child: Row(
                 children: [
                   Text(
@@ -97,7 +98,7 @@ class _ScreenPeoplesState extends State<ScreenPeoples> {
                   return const Expanded(
                     child: Center(
                       child: Text(
-                        'Error network issue',
+                        errorMessage,
                         style: TextStyle(color: kWhite),
                       ),
                     ),

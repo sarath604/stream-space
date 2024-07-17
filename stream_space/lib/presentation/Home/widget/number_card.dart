@@ -39,13 +39,13 @@ class NumberMainCard extends StatelessWidget {
                   ),
                   child: const Center(
                     child: CircularProgressIndicator(
-                     color: kgrey, 
+                      color: kgrey,
                     ),
                   ),
                 ),
               );
             } else if (state.iserror) {
-              return  Center(
+              return Center(
                 child: Container(
                   width: 150,
                   height: 200,
@@ -54,13 +54,15 @@ class NumberMainCard extends StatelessWidget {
                   ),
                   child: const Center(
                     child: CircularProgressIndicator(
-                     color: kgrey, 
+                      color: kgrey,
                     ),
                   ),
                 ),
               );
             } else if (state.everyonewatchinglist.isEmpty) {
-              return const Center(child: Text('List is empty',style: TextStyle(color: kWhite)));
+              return const Center(
+                  child:
+                      Text('List is empty', style: TextStyle(color: kWhite)));
             } else {
               return LimitedBox(
                 maxHeight: 200,

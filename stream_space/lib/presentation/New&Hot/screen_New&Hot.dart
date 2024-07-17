@@ -129,9 +129,14 @@ class _BuildcomingsoonState extends State<Buildcomingsoon> {
             ),
           );
         } else if (state.iserror) {
-          return const Center(child: Text('Error network issue',style: TextStyle(color: kWhite),));
+          return const Center(
+              child: Text(
+            errorMessage,
+            style: TextStyle(color: kWhite),
+          ));
         } else if (state.comingsoonlist.isEmpty) {
-          return const Center(child: Text('List is empty',style: TextStyle(color: kWhite)));
+          return const Center(
+              child: Text('List is empty', style: TextStyle(color: kWhite)));
         } else {
           return ListView.builder(
             controller: _scrollController,
@@ -170,7 +175,6 @@ class _BuildcomingsoonState extends State<Buildcomingsoon> {
 }
 
 // Everyoncewatching
-
 
 class BuildEveryonewatching extends StatefulWidget {
   const BuildEveryonewatching({super.key});
@@ -218,13 +222,16 @@ class _BuildEveryonewatchingState extends State<BuildEveryonewatching> {
             ),
           );
         } else if (state.iserror) {
-          return const Center(child: Text('Error network issue',style: TextStyle(color: kWhite)));
+          return const Center(
+              child:
+                  Text(errorMessage, style: TextStyle(color: kWhite)));
         } else if (state.everyonewatchinglist.isEmpty) {
-          return const Center(child: Text('List is empty',style: TextStyle(color: kWhite)));
+          return const Center(
+              child: Text('List is empty', style: TextStyle(color: kWhite)));
         } else {
           return ListView.builder(
-            controller: _scrollController,
-            scrollDirection: Axis.vertical,
+              controller: _scrollController,
+              scrollDirection: Axis.vertical,
               itemCount: state.everyonewatchinglist.length,
               shrinkWrap: true,
               itemBuilder: (context, intex) {
